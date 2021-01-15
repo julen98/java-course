@@ -1,0 +1,2 @@
+module trabajo1 {
+}

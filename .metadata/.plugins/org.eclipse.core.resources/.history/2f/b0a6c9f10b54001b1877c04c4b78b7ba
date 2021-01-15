@@ -1,0 +1,33 @@
+package ejercicioB4;
+
+public class Articulo {
+	String nombre;
+	double precio;
+	int iva;
+	int cuantosQuedan;
+	
+	public Articulo(String nombre, double precio, int iva, int cuantosQuedan){
+		
+	// Condicional para que el nombre solo tenga letras
+		
+		if(isAlpha(nombre) == true) {
+			this.nombre = nombre;
+		}
+		
+		if(precio >= 0) {
+			this.precio = precio;
+		}
+		
+		if(iva == 21) {
+			this.iva = iva;
+		}
+		
+		if(cuantosQuedan >= 0) {
+			this.cuantosQuedan = cuantosQuedan;
+		}
+	}
+	
+	public boolean isAlpha(String nombre) {
+	    return nombre.matches("[a-zA-Z]+");
+	}
+}

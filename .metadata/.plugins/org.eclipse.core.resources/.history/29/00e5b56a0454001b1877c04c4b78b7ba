@@ -1,0 +1,15 @@
+package ejercicioB2;
+
+public class Persona {
+	String DNI;
+	String nombre;
+	String apellidos;
+	int edad;
+
+	public Persona(String id, String nom, String ap, int e) {
+		DNI = id;
+		nombre = nom;
+		apellidos = ap;
+		edad = e;
+		}
+}

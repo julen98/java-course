@@ -1,0 +1,19 @@
+package ejercicio4;
+
+public class UD5EjercicioA4 {
+	public static void main (String[] args) {
+		
+		// Declaracion de objetos
+		
+		Articulo boligrafo = new Articulo();
+		
+		boligrafo.iva = 0;
+		boligrafo.precio = 0.83;
+		boligrafo.iva = 21;
+		boligrafo.cuantosQuedan = 67;
+		
+		boligrafo.precio = boligrafo.precio-0.42;
+		
+		System.out.println("Boligrafo - Precio: "+boligrafo.precio+"€ - "+"IVA: "+boligrafo.iva+"% - "+"PVP: "+(boligrafo.precio+(boligrafo.precio*boligrafo.iva/100))+"€ - Quedan: "+boligrafo.cuantosQuedan);	
+	}
+}

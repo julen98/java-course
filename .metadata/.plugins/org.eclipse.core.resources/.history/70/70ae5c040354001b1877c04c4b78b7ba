@@ -1,0 +1,6 @@
+package ejercicioB1;
+
+public class Punto {
+	int X;
+	int Y;
+}
