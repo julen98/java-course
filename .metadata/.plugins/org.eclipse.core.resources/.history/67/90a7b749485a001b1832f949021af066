@@ -1,0 +1,29 @@
+package ejercicioD1;
+
+public class Punto {
+	
+	private int X;
+	private int Y;
+	
+	public Punto(int x, int y) {
+		this.X = x;
+		this.Y = y;
+	}
+	
+	public int getX () {
+		return X;
+	}
+	
+	public int getY () {
+		return Y;
+	}
+	
+	public void setXY(int X, int Y) {
+		this.X = X;
+		this.Y = Y;
+	}
+	
+	public void imprime() {
+		System.out.println("("+X+","+Y+")");
+	}
+}
