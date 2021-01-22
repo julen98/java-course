@@ -1,12 +1,16 @@
-package ejercicioD4;
+package ejercicioE4;
 
 public class Articulo {
 	private String nombre;
 	private double precio;
 	private int iva;
 	private int cuantosQuedan;
+	private int ivaGeneral=21;
+	private int ivaReducido=10;
+	private int ivaSuperReducido=4;
+	private String tipoArticulo;
 	
-	public Articulo(String nombre, double precio, int iva, int cuantosQuedan){
+	public Articulo(String nombre, double precio, int cuantosQuedan, String tipoArticulo){
 		
 	// Condicional para que el nombre solo tenga letras
 		
@@ -17,6 +21,13 @@ public class Articulo {
 			System.err.println("El nombre es incorrecto, solo puede contener letras.");
 		}
 		
+		if(isAlpha(tipoArticulo) == true) {
+			this.tipoArticulo = tipoArticulo;
+		}else {
+			this.tipoArticulo = "incorrecto";
+			System.err.println("El nombre del articulo es incorrecto, solo puede contener letras.");
+		}
+		
 		if(precio >= 0) {
 			this.precio = precio;
 		}else {
@@ -24,12 +35,7 @@ public class Articulo {
 			System.err.println("El precio es inferior a 0.");
 		}
 		
-		if(iva == 21) {
-			this.iva = iva;
-		}else {
-			this.iva = 0;
-			System.err.println("El IVA es incorrecto.");
-		}
+			this.iva = IVANecesario();
 		
 		if(cuantosQuedan >= 0) {
 			this.cuantosQuedan = cuantosQuedan;
@@ -55,6 +61,10 @@ public class Articulo {
 		return nombre;
 	}
 	
+	public String getTipoArticulo() {
+		return nombre;
+	}
+	
 	public void setPrecio(double precio) {
 		
 		if(precio >= 0) {
@@ -62,16 +72,6 @@ public class Articulo {
 		}else {
 			this.precio = 0;
 			System.err.println("El precio es inferior a 0.");
-		}
-	}
-	
-	public void setIVA(int iva) {
-		
-		if(iva == 21) {
-			this.iva = iva;
-		}else {
-			this.iva = 0;
-			System.err.println("El IVA es incorrecto.");
 		}
 	}
 	
@@ -92,6 +92,16 @@ public class Articulo {
 		}else {
 			this.nombre = "incorrecto";
 			System.err.println("El nombre es incorrecto, solo puede contener letras.");
+		}
+	}
+	
+	public void setTipoArticulo(String tipoArticulo) {
+		
+		if(isAlpha(tipoArticulo) == true) {
+			this.tipoArticulo = tipoArticulo;
+		}else {
+			this.tipoArticulo = "incorrecto";
+			System.err.println("El nombre del articulo es incorrecto, solo puede contener letras.");
 		}
 	}
 	
@@ -147,4 +157,19 @@ public class Articulo {
 		}
 		return actualizar;
 	}
+	
+	public int IVANecesario() {
+		
+		int necesario=0;
+		
+		if(tipoArticulo=="Necesidad Basica")
+			necesario=ivaSuperReducido;
+		if(tipoArticulo=="Ocio y Vivienda")
+			necesario=ivaReducido;
+		if(tipoArticulo=="Comun")
+			necesario=ivaGeneral;
+		
+		return necesario;
+	}
+	
 }

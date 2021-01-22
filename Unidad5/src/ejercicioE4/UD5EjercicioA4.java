@@ -1,19 +1,20 @@
-package ejercicioD4;
+package ejercicioE4;
 
 public class UD5EjercicioA4 {
 	public static void main (String[] args) {
 		
 		// Declaracion de objetos
 		
-		Articulo art1 = new Articulo("Boligrafo Pilot Azul",0.83,21,67);
-		Articulo art2 = new Articulo("B0ligrafo Pil0t Azul",-99,12,-1);
+		Articulo art1 = new Articulo("Boligrafo Pilot Azul",0.83,67,"Comun");
+		Articulo art2 = new Articulo("B0ligrafo Pil0t Azul",-99,-1,"Comun");
+		Articulo art3 = new Articulo("Carne Roja",3,15,"Necesidad Basica");
 		
 		art1.imprimir();
 		art2.imprimir();
+		art3.imprimir();
 		
 		art1.setPrecio(0.87);
 		art2.setPrecio(1.55);
-		art2.setIVA(21);
 		art2.setCuantosQuedan(12);
 		art2.setNombre("Boligrafo Purpura Pilot Borrable");
 		art1.vender(15);

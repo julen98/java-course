@@ -1,12 +1,13 @@
-package ejercicioD3;
+package ejercicioE3;
 
 public class UD5EjercicioA3 {
 	public static void main (String[] args) {
 		
 		// Declaracion de objetos
 		
-		Rectangulo rect1 = new Rectangulo(5,1,7,2);
+		Rectangulo rect1 = new Rectangulo(-5,-1,101,150);
 		Rectangulo rect2 = new Rectangulo(2,3,7,9);
+		Rectangulo rect3 = new Rectangulo(5,1,7,2);
 		
 		rect1.imprimir();
 		rect2.imprimir();
@@ -29,5 +30,9 @@ public class UD5EjercicioA3 {
 		System.out.println("Perimetro del Rectangulo 2: "+rect2.getPerimetro());
 		System.out.println("Area del Rectangulo 1: "+rect1.getArea());
 		System.out.println("Area del Rectangulo 2: "+rect2.getArea());
+		
+		rect3.creaRectAleatorio();
+		rect3.imprimir();
+		
 	}
 }
