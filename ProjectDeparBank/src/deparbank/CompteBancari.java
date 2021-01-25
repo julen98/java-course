@@ -16,14 +16,17 @@ public class CompteBancari {
 			System.err.println("El IBAN es incorrecto.");
 		}
 		
-		if(validarTitular(titular)==true) {
+		if(validarTitular(titular)==true)
 		this.titular = titular;
-		}else {
+		else 
 			System.err.println("El nombre es incorrecto, tiene que tener un nombre y un apellido comenzando cada uno por mayúscula.");
-		}
-		if(saldo>-50)
+		
+		if(saldo > -50)
 			this.saldo = saldo;
-		if(saldo<0)
+		else
+			System.err.println("El saldo es inferior al permitido (-50€).");
+		
+		if(saldo < 0)
         	System.out.println("AVISO: Saldo negativo.");
 		}
 	}
@@ -40,19 +43,32 @@ public class CompteBancari {
 	
 	public void movimientos() {
 		
+		double vector[] = new double[99];
+		int i = 0;
+		int max_movimientos = 100;
+		
+		vector[i] = saldo;
+		i++;
+		
 	}
  
-	public void retirar(double cantidad) {
+	void retirar(double cantidad) {
 		if(saldo-cantidad>-50)
 		saldo = saldo - cantidad;
+		else
+			System.err.println("El saldo es inferior al permitido (-50€).");
 		if(cantidad>3000)
         	System.out.println("AVISO: NOTIFICACIÓN A HACIENDA");
+		if(saldo < 0)
+        	System.out.println("AVISO: Saldo negativo.");
 	}
 	
-	public void depositar(double cantidad) {
+	void depositar(double cantidad) {
         saldo = saldo + cantidad;
         if(cantidad>3000)
         	System.out.println("AVISO: NOTIFICACIÓN A HACIENDA");
+        if(saldo < 0)
+        	System.out.println("AVISO: Saldo negativo.");
 	}
 	
 	public double getSaldo() {
@@ -65,5 +81,23 @@ public class CompteBancari {
 	
 	public String getTitular() {
 		return titular;
+	}
+	
+	public void imprimirDatos() {
+		System.out.println("IBAN: "+getIBAN());
+		System.out.println("Nombre del titular: "+getTitular());
+		System.out.println("Saldo: "+getSaldo()+"€");
+	}
+	
+	public void imprimirIBAN() {
+		System.out.println("IBAN: "+getIBAN());
+	}
+	
+	public void imprimirNombre() {
+		System.out.println("Nombre del titular: "+getTitular());
+	}
+	
+	public void imprimirSaldo() {
+		System.out.println("Saldo: "+getSaldo()+"€");
 	}
 }
