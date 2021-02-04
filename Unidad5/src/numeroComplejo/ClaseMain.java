@@ -6,25 +6,55 @@ public class ClaseMain {
 		@SuppressWarnings("resource")
 		Scanner teclado = new Scanner(System.in);
 		Complejo c1, c2, oper;
-		double real, imag;
+		double real, im;
 		
 		// Rellenar objetos
 		
-		System.out.print("Escribe el primer real: ");
+		System.out.print("Escribe el primer real:\t");
         real = teclado.nextDouble();
-        System.out.print("Escribe el primer imaginario: ");
-        imag = teclado.nextDouble();                    
-        c1 = new Complejo (real, imag);    
-        System.out.print("Escribe el segundo real: ");
-        real = teclado.nextDouble();
-        System.out.print("Escribe el segundo imaginario: ");
-        imag = teclado.nextDouble();                    
-        c2 = new Complejo (real, imag);
+        System.out.print("Escribe el primer imaginario:\t");
+        im = teclado.nextDouble();                    
+        c1 = new Complejo (real, im); 
         
-        oper = c1.sumar(c2);
+        System.out.print("Escribe el primer real:\t");
+        real = teclado.nextDouble();
+        System.out.print("Escribe el primer imaginario:\t");
+        im = teclado.nextDouble();                  
+        c2 = new Complejo (real,im);
+        
+        oper = sumar(c1,c2);
         
         menu(c1,c2,oper);
         }
+	
+	public static Complejo sumar(Complejo c, Complejo c1){
+        Complejo oper = new Complejo();
+        oper.setReal(c1.getReal() + c.getReal());
+        oper.setIm(c1.getIm() + c.getIm());
+        return oper;
+    }
+
+	public static Complejo restar(Complejo c, Complejo c1){
+        Complejo oper = new Complejo();
+        
+        oper.setReal(c1.getReal() - c.getReal());
+        oper.setIm(c1.getIm() - c.getIm());
+        return oper;
+	}
+    
+    public static Complejo multiplicar(Complejo c, Complejo c1){
+        Complejo oper = new Complejo();
+        oper.setReal((c1.getReal() * c.getReal() - c1.getIm() * c.getIm()));
+        oper.setIm((c1.getReal() * c.getIm() + c1.getReal() * c.getReal()));
+        return oper;
+    }
+    
+    public static Complejo dividir(Complejo c, Complejo c1){
+        Complejo oper = new Complejo();
+        oper.setReal((c1.getReal() * c.getReal() + c1.getIm() * c.getIm()) / (c.getReal() * c.getReal() + c.getIm() * c.getIm()));
+        oper.setIm((c1.getIm() * c.getReal() - c1.getReal() * c.getIm()) / (c.getReal() * c.getReal() + c.getIm() * c.getIm()));                           
+        return oper;
+    }
 	
 	public static void menu(Complejo c1, Complejo c2, Complejo oper) {
 		@SuppressWarnings("resource")
@@ -47,26 +77,28 @@ public class ClaseMain {
 		opcion = teclado.nextInt();
 		
 		if(opcion == 1) {
-		oper = c1.sumar(c2);
-        System.out.println("El resultado es: "+oper.getReal()+" + "+ oper.getImaginario()+"i");
+		oper = sumar(c1,c2);
+        System.out.println("El resultado es: "+oper.getReal()+" + "+ oper.getIm()+"i");
 		}
 		
 		if(opcion == 2) {
-		oper = c1.restar(c2);
-        System.out.println("El resultado es: "+oper.getReal()+" + "+ oper.getImaginario()+"i");
+		oper = restar(c1,c2);
+        System.out.println("El resultado es: "+oper.getReal()+" + "+ oper.getIm()+"i");
 		}
 		
 		if(opcion == 3) {
-		oper = c1.multiplicar(c2);
-	    System.out.println("El resultado es: "+oper.getReal()+" + "+ oper.getImaginario()+"i");
+		oper = multiplicar(c1,c2);
+	    System.out.println("El resultado es: "+oper.getReal()+" + "+ oper.getIm()+"i");
 		}
+		
 		if(opcion == 4) {
-		oper = c1.dividir(c2);
-	    System.out.println("El resultado es: "+oper.getReal()+" + "+ oper.getImaginario()+"i");
+		oper = dividir(c1,c2);
+	    System.out.println("El resultado es: "+oper.getReal()+" + "+ oper.getIm()+"i");
 		}
+		
 		if(opcion == 5)
 		System.exit(0);
 		}
+		
 		}
-	
 }

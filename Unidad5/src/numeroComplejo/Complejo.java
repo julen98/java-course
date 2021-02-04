@@ -17,35 +17,16 @@ public class Complejo {
 		return real;
 	}
 	
-	public double getImaginario() {
+	public double getIm() {
 		return im;
 	}
 	
-	public Complejo sumar(Complejo c){
-        Complejo oper = new Complejo();
-        oper.real = real + c.real;
-        oper.im = im + c.im;
-        return oper;
-    }
-
-	public Complejo restar(Complejo c){
-        Complejo oper = new Complejo();
-        oper.real = real - c.real;
-        oper.im = im - c.im;
-        return oper;
+	public void setReal(double real) {
+		this.real = real;
 	}
-    
-    public Complejo multiplicar(Complejo c){
-        Complejo oper = new Complejo();
-        oper.real = (real * c.real - im * c.im);
-        oper.im = (real * c.im + real * c.real);
-        return oper;
-    }
-    
-    public Complejo dividir(Complejo c){
-        Complejo oper = new Complejo();
-        oper.real = (real * c.real + im * c.im) / (c.real * c.real + c.im * c.im);
-        oper.im = (im * c.real - real * c.im) / (c.real * c.real + c.im * c.im);                           
-        return oper;
-    }
+	
+	public void setIm(double im) {
+		this.im = im;
+	}
+	
 }
