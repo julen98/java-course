@@ -2,7 +2,9 @@ package gestisimal;
 import java.util.*;
 
 public class ClaseMain {
-	static int X = 100;
+	static int X = 2;
+	static int cont = 0;
+	
 	public static void main(String[] args) {
 		Gestisimal articulo[] = new Gestisimal[X];
 		
@@ -47,25 +49,32 @@ public class ClaseMain {
 			
 			System.out.println("\nDAR DE ALTA");
 	        System.out.println("-----------");
-	          
-	          for(i = 0, N = 1; i < X; i++, N++) {
-	        	  teclado.nextLine();
-	            if (articulo[i].getCodigo().equals("LIBRE")) {
+	        
+	        
+	        if(cont == X-1)
+            	System.out.println("El almacen esta lleno.\n");
+	        
+	        for(i = 0, N = 1; i < X; i++, N++) {
+	        	
+	        	if(!articulo[i].getCodigo().equals("LIBRE")) {
+	            	cont++;
+	            }
+	        	if (articulo[i].getCodigo().equals("LIBRE")) {
+	            	teclado.nextLine();
 	            	articulo[i].setCodigo("COD-"+N);
 	            	System.out.println("Introduce la descripcion: ");
 	            	articulo[i].setDescripcion(teclado.nextLine());
 	            	System.out.println("Introduce el precio de venta: ");
-	            	articulo[i].setPrecioVenta(teclado.nextInt());
+	            	articulo[i].setPrecioVenta(teclado.nextDouble());
 	            	System.out.println("Introduce el precio de compra: ");
-	            	articulo[i].setPrecioCompra(teclado.nextInt());
+	            	articulo[i].setPrecioCompra(teclado.nextDouble());
 	            	System.out.println("Introduce el stock: ");
 	            	articulo[i].setStock(teclado.nextInt());
 	            	
 	            	i = 100;
-	            } else {
-	            	System.out.println("El almacen esta lleno.");
 	            }
-	          }
+	            }
+	        
 	          
 			break;
 			
@@ -87,11 +96,11 @@ public class ClaseMain {
 			
 			System.out.println("\nMODIFICAR");
 			System.out.println("---------");
-			teclado.nextLine(); 
 			System.out.println("Introduce el codigo del articulo: ");
 			id = teclado.nextLine();
 			for(i = 0; i < X; i++) {
 				if (articulo[i].getCodigo().equals(id)) {
+					teclado.nextLine(); 
 					System.out.println("Elige que quieres modificar: ");
 					System.out.println("OPCIONES");
 					System.out.println("1. Cambiar descripcion.");
@@ -102,24 +111,26 @@ public class ClaseMain {
 					int opciones = teclado.nextInt();
 					
 					if(opciones == 1) {
+						teclado.nextLine(); 
 						System.out.println("Introduce la descripcion: ");
             			articulo[i].setDescripcion(teclado.nextLine());
 					}
             		if(opciones == 2) {
             			System.out.println("Introduce el precio de venta: ");
-            			articulo[i].setPrecioVenta(teclado.nextInt());
+            			articulo[i].setPrecioVenta(teclado.nextDouble());
             		}
             		if(opciones == 3) {
             			System.out.println("Introduce el precio de compra: ");
-            			articulo[i].setPrecioCompra(teclado.nextInt());
+            			articulo[i].setPrecioCompra(teclado.nextDouble());
             		}
             		if(opciones == 4) {
+            			teclado.nextLine(); 
             			System.out.println("Introduce la descripcion: ");
             			articulo[i].setDescripcion(teclado.nextLine());
             			System.out.println("Introduce el precio de venta: ");
-            			articulo[i].setPrecioVenta(teclado.nextInt());
+            			articulo[i].setPrecioVenta(teclado.nextDouble());
                 		System.out.println("Introduce el precio de compra: ");
-                		articulo[i].setPrecioCompra(teclado.nextInt());
+                		articulo[i].setPrecioCompra(teclado.nextDouble());
                 	}
 				}
 			}
@@ -128,19 +139,40 @@ public class ClaseMain {
 			
 		case 5:
 			
-			
+			teclado.nextLine(); 
+			System.out.println("Introduce el codigo del articulo: ");
+			id = teclado.nextLine();
+			for(i = 0; i < X; i++) {
+				if (articulo[i].getCodigo().equals(id)) {
+					System.out.println("Introduce la cantidad que se ha ingresado: ");
+					int ingreso = teclado.nextInt();
+					articulo[i].setStock(articulo[i].getStock()+ingreso);
+				}
+			}
 			
 			break;
 			
 		case 6:
 			
-			
+			teclado.nextLine(); 
+			System.out.println("Introduce el codigo del articulo: ");
+			id = teclado.nextLine();
+			for(i = 0; i < X; i++) {
+				if (articulo[i].getCodigo().equals(id)) {
+					System.out.println("Introduce la cantidad que se ha retirado: ");
+					int retirada = teclado.nextInt();
+					if(retirada<articulo[i].getStock())
+						articulo[i].setStock(articulo[i].getStock()-retirada);
+					else
+						System.out.println("No se puede retirar mas mercancia de la que hay en el almacen");
+				}
+			}
 			
 			break;
 			
 		case 7:
 			
-			
+			System.exit(0);
 			
 			break;
 			

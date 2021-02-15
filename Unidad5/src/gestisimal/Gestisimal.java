@@ -1,5 +1,7 @@
 package gestisimal;
 
+import java.util.regex.Pattern;
+
 public class Gestisimal {
 	private String codigo = "LIBRE";
 	private String descripcion;
@@ -40,7 +42,7 @@ public class Gestisimal {
 	}
 	
 	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+			this.descripcion = descripcion;
 	}
 	
 	public double getPrecioCompra() {
@@ -61,11 +63,11 @@ public class Gestisimal {
 	
 	public String toString() {
 		String cadena = "--------------------------------------";
-		cadena += "\nCodigo: " + this.codigo;
-		cadena += "\nCodigo: " + this.descripcion;
-		cadena += "\nCodigo: " + this.precioCompra;
-		cadena += "\nCodigo: " + this.precioVenta;
-		cadena += "\nCodigo: " + this.stock + " unidades";
+		cadena += "\nCodigo:\t\t\t " + this.codigo;
+		cadena += "\nDescripcion:\t\t " + this.descripcion;
+		cadena += "\nPrecio de compra:\t " + this.precioCompra + "€";
+		cadena += "\nPrecio de venta:\t " + this.precioVenta + "€";
+		cadena += "\nStock:\t\t\t " + this.stock + " unidades";
 		cadena += "\n--------------------------------------";
 		return cadena;
 	}
