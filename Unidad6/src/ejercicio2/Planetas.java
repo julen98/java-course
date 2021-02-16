@@ -16,8 +16,6 @@ public class Planetas extends Astros {
 		this.tiene_satelites = tiene_satelites;
 	}
 
-
-
 	public double getDistancia_al_sol() {
 		return distancia_al_sol;
 	}
@@ -48,12 +46,9 @@ public class Planetas extends Astros {
 	
 	@Override
 	public String toString() {
-		return "Planetas [distancia_al_sol=" + distancia_al_sol + ", orbita_al_sol=" + orbita_al_sol
+		return "[distancia_al_sol=" + distancia_al_sol + ", orbita_al_sol=" + orbita_al_sol
 				+ ", tiene_satelites=" + tiene_satelites + ", radio_ecuatorial=" + radio_ecuatorial
 				+ ", rotacion_sobre_su_eje=" + rotacion_sobre_su_eje + ", masa=" + masa + ", temperatura_media="
 				+ temperatura_media + ", gravedad=" + gravedad + "]";
 	}
-
-	
-	
 }

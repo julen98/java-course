@@ -46,7 +46,7 @@ public class Satelites extends Astros {
 	
 	@Override
 	public String toString() {
-		return "Satelites [distancia_al_planeta=" + distancia_al_planeta + ", orbita_planetaria=" + orbita_planetaria
+		return "[distancia_al_planeta=" + distancia_al_planeta + ", orbita_planetaria=" + orbita_planetaria
 				+ ", planeta_al_que_pertenece=" + planeta_al_que_pertenece + ", radio_ecuatorial=" + radio_ecuatorial
 				+ ", rotacion_sobre_su_eje=" + rotacion_sobre_su_eje + ", masa=" + masa + ", temperatura_media="
 				+ temperatura_media + ", gravedad=" + gravedad + "]";

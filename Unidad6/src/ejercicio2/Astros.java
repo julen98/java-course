@@ -67,7 +67,7 @@ public class Astros {
 
 	@Override
 	public String toString() {
-		return "Astros [radio_ecuatorial=" + radio_ecuatorial + ", rotacion_sobre_su_eje=" + rotacion_sobre_su_eje
+		return "[radio_ecuatorial=" + radio_ecuatorial + ", rotacion_sobre_su_eje=" + rotacion_sobre_su_eje
 				+ ", masa=" + masa + ", temperatura_media=" + temperatura_media + ", gravedad=" + gravedad + "]";
 	}
 }
