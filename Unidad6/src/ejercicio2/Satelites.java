@@ -46,10 +46,19 @@ public class Satelites extends Astros {
 	
 	@Override
 	public String toString() {
-		return "[distancia_al_planeta=" + distancia_al_planeta + ", orbita_planetaria=" + orbita_planetaria
-				+ ", planeta_al_que_pertenece=" + planeta_al_que_pertenece + ", radio_ecuatorial=" + radio_ecuatorial
-				+ ", rotacion_sobre_su_eje=" + rotacion_sobre_su_eje + ", masa=" + masa + ", temperatura_media="
-				+ temperatura_media + ", gravedad=" + gravedad + "]";
+		
+		String string = "*** Satelite "+nombre+" ***";
+		string+= "\nDistancia al planeta: "+distancia_al_planeta;
+		string+= "\nOrbita planetaria: "+orbita_planetaria;
+		string+= "\nRadio ecuatorial: "+radio_ecuatorial;
+		string+= "\nRotacion sobre su eje: "+rotacion_sobre_su_eje;
+		string+= "\nMasa: "+masa;
+		string+= "\nTemperatura media: "+temperatura_media;
+		string+= "\nGravedad: "+gravedad;
+		string+= "\nPlaneta al que pertenece: "+planeta_al_que_pertenece;
+		
+		
+		return string;
 	}
 
 	

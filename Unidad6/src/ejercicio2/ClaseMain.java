@@ -5,53 +5,72 @@ import java.util.*;
 public class ClaseMain {
 	public static void main(String[] args) {
 		
-		ArrayList<Planetas> plan = new ArrayList <Planetas>();
+		ArrayList<Astros> lista = new ArrayList <Astros>();
 		
 		Planetas p1 = new Planetas("Tierra", 0, 3, 0, 3, 0, 3, 0, true);
 		Planetas p2 = new Planetas("Marte", 1, 2, 1, 2, 1, 2, 1, false);
 		Planetas p3 = new Planetas("Jupiter", 2, 1, 2, 1, 2, 1, 2, true);
-		Planetas p4 = new Planetas("Saturno", 3, 0, 3, 0, 3, 0, 3, false);
-		
-		plan.add(p1);
-		plan.add(p2);
-		plan.add(p3);
-		plan.add(p4);
-		
-		ArrayList<Satelites> sat = new ArrayList<Satelites>();
-		
 		Satelites s1 = new Satelites("Europa", 0, 0, 0, 0, 0, 0, 0, p1);
 		Satelites s2 = new Satelites("Luna", 0, 0, 0, 0, 0, 0, 0, p1);
-		Satelites s3 = new Satelites("Ganimedes", 0, 0, 0, 0, 0, 0, 0, p3);
-		Satelites s4 = new Satelites("Calisto", 0, 0, 0, 0, 0, 0, 0, p3);
 		
-		sat.add(s1);
-		sat.add(s2);
-		sat.add(s3);
-		sat.add(s4);
+		lista.add(p1);
+		lista.add(p2);
+		lista.add(p3);
+		lista.add(s1);
+		lista.add(s2);
 		
-		for (Satelites satelite : sat) {
-		if(satelite.getPlaneta_al_que_pertenece().equals(p1)) {
-			System.out.println(satelite.getNombre());
-		}
-		}
-		
-		imprimir(plan,sat);
+		menu(lista);
 		
 	}
 	
-	public static void imprimir(ArrayList<Planetas> plan, ArrayList<Satelites> sat) {
-		
+	public static void menu(ArrayList<Astros> lista) {
+
+		@SuppressWarnings("resource")
 		Scanner teclado = new Scanner(System.in);
+		int opcion = 0;
+
+		while(opcion < 6) {
+		System.out.println("\n=== LISTA DE ASTROS ===");
+		System.out.println("Astro 1: "+lista.get(0).getNombre());
+		System.out.println("Astro 2: "+lista.get(1).getNombre());
+		System.out.println("Astro 3: "+lista.get(2).getNombre());
+		System.out.println("Astro 4: "+lista.get(3).getNombre());
+		System.out.println("Astro 5: "+lista.get(4).getNombre());
+		System.out.println("Elige un astro (-1 para salir): ");
+		opcion = teclado.nextInt();
 		
-		System.out.println("Introduce el astro a mostrar: ");
-		String astro = teclado.nextLine();
-		
-		for(Planetas planeta : plan) {
-			if(planeta.getNombre() == astro) {
-				System.out.println(planeta.toString());
-			}
+		switch(opcion) {
+		case -1:
+			System.exit(0);
+		case 1:
+			System.out.println(lista.get(0));
+			pressAnyKeyToContinue();
+			break;
+		case 2:
+			System.out.println(lista.get(1));
+			pressAnyKeyToContinue();
+			break;
+		case 3:
+			System.out.println(lista.get(2));
+			pressAnyKeyToContinue();
+			break;
+		case 4:
+			System.out.println(lista.get(3));
+			pressAnyKeyToContinue();
+			break;
+		case 5:
+			System.out.println(lista.get(4));
+			pressAnyKeyToContinue();
+			break;
 		}
-		
 		}
+	}
 	
+	private static void pressAnyKeyToContinue() { 
+	        System.out.println("Presiona Enter para continuar ...");
+	        try{
+	            System.in.read();
+	        }  
+	        catch(Exception e){}  
+	 }
 }
