@@ -25,9 +25,16 @@
 	<section name="FileSystemImportWizard">
 	</section>
 	<section name="WorkbenchPreferenceDialogSettings">
-		<item key="DIALOG_X_ORIGIN" value="94"/>
+		<item key="DIALOG_X_ORIGIN" value="56"/>
 		<item key="DIALOG_Y_ORIGIN" value="111"/>
 	</section>
 	<section name="ZipFileImportWizard">
+	</section>
+	<section name="NewWizardAction">
+	</section>
+	<section name="org.eclipse.ui.preferences.keysPreferencePage">
+		<item key="actionSetFilter" value="true"/>
+		<item key="internalFilter" value="true"/>
+		<item key="uncategorizedFilter" value="true"/>
 	</section>
 </section>

@@ -44,29 +44,29 @@ public class ClaseMain {
 			System.exit(0);
 		case 1:
 			System.out.println(lista.get(0));
-			pressAnyKeyToContinue();
+			aprietaEnter();
 			break;
 		case 2:
 			System.out.println(lista.get(1));
-			pressAnyKeyToContinue();
+			aprietaEnter();
 			break;
 		case 3:
 			System.out.println(lista.get(2));
-			pressAnyKeyToContinue();
+			aprietaEnter();
 			break;
 		case 4:
 			System.out.println(lista.get(3));
-			pressAnyKeyToContinue();
+			aprietaEnter();
 			break;
 		case 5:
 			System.out.println(lista.get(4));
-			pressAnyKeyToContinue();
+			aprietaEnter();
 			break;
 		}
 		}
 	}
 	
-	private static void pressAnyKeyToContinue() { 
+	private static void aprietaEnter() { 
 	        System.out.println("Presiona Enter para continuar ...");
 	        try{
 	            System.in.read();
