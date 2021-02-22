@@ -7,17 +7,17 @@ public static void main(String[] args) {
 	
 	//Declaración
 	
-	int tamaño;
+	int tama�o;
 	int valor;
 	
 	//Inclusión de datos
 	
-	System.out.println("Dime el tamaño del vector: ");
-	tamaño = teclado.nextInt();
+	System.out.println("Dime el tama�o del vector: ");
+	tama�o = teclado.nextInt();
 	System.out.println("Dime el valor del vector: ");
 	valor = teclado.nextInt();
 	teclado.close();
-	int vector[] = new int[tamaño];
+	int vector[] = new int[tama�o];
 	Arrays.fill(vector, valor);
 	
 	//Mostrar datos
