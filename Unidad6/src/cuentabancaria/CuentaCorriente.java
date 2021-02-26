@@ -11,6 +11,6 @@ public class CuentaCorriente extends CuentaBancaria {
         double fakesaldo = getSaldo();
 
         añadir(fakesaldo = fakesaldo - (fakesaldo * interesAnualBasico / 100));
-        System.out.println("Saldo tras calcular los intereses: " + fakesaldo);
+        System.out.println("Saldo tras calcular los intereses: " + fakesaldo + " euros");
     }
 }

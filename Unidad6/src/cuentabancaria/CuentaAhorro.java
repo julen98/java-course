@@ -19,6 +19,6 @@ public class CuentaAhorro extends CuentaBancaria {
             añadir(fakesaldo = fakesaldo - (fakesaldo * (interesAnualBasico / 2) / 100));
         }
         
-        System.out.println("Saldo tras calcular los intereses: " + fakesaldo);
+        System.out.println("Saldo tras calcular los intereses: " + fakesaldo + " euros");
     }
 }

@@ -18,5 +18,7 @@ public abstract class Vehiculos {
         return modelo;
     }
 
-
+    public void imprimir() {
+    	System.out.println("Matricula: " + matricula + ", modelo: " + modelo);
+    }
 }

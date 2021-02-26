@@ -51,7 +51,7 @@ public abstract class CuentaBancaria {
     public void imprimirDatos() { // Imprime los datos
         System.out.println("\nIBAN: " + iban);
         System.out.println("Nombre del titular: " + titular);
-        System.out.println("Saldo: " + saldo + " €");
+        System.out.println("Saldo: " + saldo + " euros");
     }
 
     public void imprimirIBAN() { // Imprime el IBAN
@@ -63,6 +63,6 @@ public abstract class CuentaBancaria {
     }
 
     public void imprimirSaldo() { // Imprime el saldo
-        System.out.println("\nSaldo: " + saldo + "€");
+        System.out.println("\nSaldo: " + saldo + " euros");
     }
 }
