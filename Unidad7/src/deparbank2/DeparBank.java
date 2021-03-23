@@ -1,26 +1,27 @@
-package deparbank;
+package deparbank2;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class DeparBank {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CompteException, AvisaHisendaException {
         @SuppressWarnings("resource")
         Scanner teclado = new Scanner(System.in);
         String nombre;
-
+        
         System.out.println("Vamos a proceder a crear tu cuenta bancaria, por favor introduce tu nombre y apellidos: ");
         nombre = teclado.nextLine();
-
+        
         CompteBancari c1 = new CompteBancari("ES0000000000000000000000", nombre, 0);
         menuBanco(c1);
     }
 
-    public static void menuBanco(CompteBancari c1) {
+    public static void menuBanco(CompteBancari c1) throws CompteException, AvisaHisendaException {
         @SuppressWarnings("resource")
         Scanner teclado = new Scanner(System.in);
         int opcion = 0;
 
         // Bucle para mostrar el menu una vez se selecciona una opcion
-
+        try {
         while (opcion < 9) {
 
             System.out.println("----------------------------------------------");
@@ -72,6 +73,16 @@ public class DeparBank {
                 System.exit(0);
             }
 
+        }
+    }
+        catch (CompteException e) {
+        	System.out.println(e.getMessage());
+        	e.printStackTrace();
+        }
+	
+        catch (InputMismatchException e){
+        	System.out.println("Valor introducido incorrecto: " + e);
+        	e.printStackTrace();
         }
     }
 }
