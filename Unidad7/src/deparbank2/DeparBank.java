@@ -21,9 +21,9 @@ public class DeparBank {
         int opcion = 0;
 
         // Bucle para mostrar el menu una vez se selecciona una opcion
-        try {
+        
         while (opcion < 9) {
-
+        	try {
             System.out.println("----------------------------------------------");
             System.out.println("---- 1. Mostrar datos.                    ----");
             System.out.println("---- 2. Mostrar IBAN.                     ----");
@@ -72,17 +72,18 @@ public class DeparBank {
             if (opcion == 8) {
                 System.exit(0);
             }
+        	}
+        	
+        	catch (CompteException e) {
+            	System.out.println(e.getMessage());
+            	e.printStackTrace();
+            }
+    	
+            catch (InputMismatchException e){
+            	System.out.println("Valor introducido incorrecto: " + e);
+            	e.printStackTrace();
+            }
 
-        }
-    }
-        catch (CompteException e) {
-        	System.out.println(e.getMessage());
-        	e.printStackTrace();
-        }
-	
-        catch (InputMismatchException e){
-        	System.out.println("Valor introducido incorrecto: " + e);
-        	e.printStackTrace();
         }
     }
 }

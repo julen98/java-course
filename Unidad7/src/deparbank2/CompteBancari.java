@@ -66,17 +66,11 @@ public class CompteBancari {
     }
 
     public void movimientos(double saldo) { // Escribe en el vector de movimientos
-    	try {
         historial.add(saldo);
-    	}
-    	
-    	catch (ArrayIndexOutOfBoundsException exception) {
-			System.out.println("El tamaño del vector es " + historial.size() + ", te has pasado!! " + exception);
-		}
     }
 
     void retirar(double cantidad) throws CompteException, AvisaHisendaException { // Pide una cantidad a retirar y lo aplica a la variable saldo, ademas de incluir el movimiento en el historial
-
+    	try {
         if (cantidad > 0) {
         	try {
             if (saldo - cantidad > -50) {
@@ -102,7 +96,14 @@ public class CompteBancari {
         	catch (InputMismatchException exception){
     			System.out.println("Valor introducido incorrecto: " + exception);
     		}
+        } else {
+        	throw new CompteException("La cantidad debe ser superior a 0.");
         }
+    	}
+    	
+    	catch (CompteException exception) {
+			System.out.println(exception.getMessage());
+		}
     }
 
     void depositar(double cantidad) throws CompteException, AvisaHisendaException{ // Pide una cantidad a ingresar y lo aplica a la variable saldo, ademas de incluir el movimiento en el historial
