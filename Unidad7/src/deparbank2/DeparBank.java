@@ -7,13 +7,10 @@ public class DeparBank {
         @SuppressWarnings("resource")
         Scanner teclado = new Scanner(System.in);
         String nombre;
-        String regex = "[A-Z][a-zA-Z]{4,}(?: [A-Z][a-zA-Z]*){0,2}";
-
+        
         try {
         System.out.println("Vamos a proceder a crear tu cuenta bancaria, por favor introduce tu nombre y apellidos: ");
         	nombre = teclado.nextLine();
-        if (!nombre.matches(regex))
-           	throw new CompteException("El nombre es incorrecto, tiene que tener un nombre y un apellido comenzando cada uno por mayuscula.");
         
         CompteBancari c1 = new CompteBancari("ES0000000000000000000000", nombre, 0);
         menuBanco(c1);
