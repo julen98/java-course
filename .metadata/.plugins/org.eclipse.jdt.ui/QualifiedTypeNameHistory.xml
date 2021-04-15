@@ -9,4 +9,5 @@
 <fullyQualifiedTypeName name="javax.sound.midi.SysexMessage"/>
 <fullyQualifiedTypeName name="java.util.Iterator"/>
 <fullyQualifiedTypeName name="java.util.Collections"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
 </qualifiedTypeNameHistroy>
