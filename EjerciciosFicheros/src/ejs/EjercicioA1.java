@@ -3,7 +3,7 @@ package ejs;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class EjercicioA1 {
@@ -28,18 +28,28 @@ public class EjercicioA1 {
 	}
 
 	public static void muestraInfoRuta(File ruta) throws IOException {
-		File filesList[] = ruta.listFiles();
-		Arrays.parallelSort(filesList);
+		File[] filesList = ruta.listFiles();
 		for (File file: filesList) {
 			try {
 				boolean exists = file.exists();
 				boolean isDirectory = file.isDirectory();
 				boolean isFile = file.isFile();
+				boolean done = true;
+				ArrayList <File> dir = new ArrayList<File>();
+				ArrayList <File> fil = new ArrayList<File>();
 				if (exists) {
-					if (isDirectory)
-						System.out.println("[*]" + file.getName());
-					if (isFile)
-						System.out.println("[A]" + file.getName());
+					if (isDirectory) {
+						dir.add(file);
+						for (int i = 0; i < dir.size(); i++) {
+							System.out.println("[*]" + file.getName());
+						}
+					}
+					if (isFile) {
+						fil.add(file);
+						for (int i = 0; i < fil.size(); i++) {
+							System.out.println("[A]" + file.getName());
+						}
+					}
 				} else {
 					throw new FileNotFoundException("No existe el archivo");
 				}
