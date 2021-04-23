@@ -1,24 +1,21 @@
 package casPracticMiniTerminalMiniFileManager;
 
-import java.io.*;
-import java.util.*;
+import java.io.IOException;
+import java.util.Scanner;
 
 public class MiniTerminal {
 	public static void main(String[] args) {
 		
-		File file = new File("");
-
-		MiniFileManager m = new MiniFileManager(file);
-		
+		MiniFileManager manager = new MiniFileManager();
 		Scanner teclado = new Scanner(System.in);
 		
-		
-		
 		try {
-			System.out.println(m.pwd());
-			m.ls(false);
+			manager.pwd();
+			manager.ls();
+			manager.mkdir("test");
 		} catch (IOException e) {
 			System.out.println(e);
 		}
-	}
+		
+	teclado.close();}
 }
