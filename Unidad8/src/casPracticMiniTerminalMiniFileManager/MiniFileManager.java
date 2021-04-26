@@ -20,16 +20,16 @@ public class MiniFileManager {
 
 	}
 
-	public void pwd() throws IOException {
+	public String pwd() throws IOException {
 
-		System.out.println(file.getCanonicalPath().toString());
+		return file.getCanonicalPath().toString();
 	}
 
-	public boolean cd(String dir, String args) throws IOException {
+	public boolean cd(String dir) throws IOException {
 
 		boolean cambiado = false;
 
-		if (args != "..") {
+		if (dir != "..") {
 			file = new File(dir);
 		} else {
 			file = new File(file.getParent());
@@ -41,8 +41,43 @@ public class MiniFileManager {
 
 		return cambiado;
 	}
-
+	
 	public void ls() throws IOException {
+
+		File[] filesList = file.listFiles();
+		Arrays.parallelSort(filesList);
+		ArrayList < File > dir = new ArrayList < File > ();
+		ArrayList < File > fil = new ArrayList < File > ();
+		int i = 0;
+		for (File file: filesList) {
+			try {
+				boolean exists = file.exists();
+				boolean isDirectory = file.isDirectory();
+				boolean isFile = file.isFile();
+
+				if (exists) {
+					if (isDirectory) {
+						dir.add(file);
+					}
+					if (isFile) {
+						fil.add(file);
+					}
+				} else {
+					throw new FileNotFoundException("No existe el archivo.");
+				}
+			} catch (FileNotFoundException e) {
+				System.out.println(e);
+			}
+		}
+		for (i = 0; i < dir.size(); i++) {
+			System.out.println("[*]" + dir.get(i).getName());
+		}
+		for (i = 0; i < fil.size(); i++) {
+			System.out.println("[A]" + fil.get(i).getName());
+		}
+	}
+	
+	public void ll() throws IOException {
 
 		File[] filesList = file.listFiles();
 		Arrays.parallelSort(filesList);
@@ -155,5 +190,9 @@ public class MiniFileManager {
 				toString += "exit: Termina el programa.";
 
 		return toString;
+	}
+	
+	public void exit () {
+		System.exit(0);
 	}
 }
