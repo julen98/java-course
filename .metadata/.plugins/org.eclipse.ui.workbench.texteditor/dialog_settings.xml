@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="userAcierta"/>
+		<item key="selection" value="teclado"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="scanchoice"/>
+			<item value="choiceentry"/>
 			<item value="userAcierta"/>
 			<item value="num2"/>
 			<item value="num1"/>
@@ -21,10 +23,10 @@
 			<item value="real"/>
 			<item value="getImaginario()"/>
 			<item value="getReal()"/>
-			<item value="aux"/>
-			<item value="imag"/>
 		</list>
 		<list key="replacehistory">
+			<item value="teclado"/>
+			<item value="opcion"/>
 			<item value="n2"/>
 			<item value="n1"/>
 			<item value="----"/>
@@ -38,8 +40,6 @@
 			<item value="oper"/>
 			<item value="tamano"/>
 			<item value="mostrarPiramide"/>
-			<item value="mostrarPiramide()"/>
-			<item value="producto"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

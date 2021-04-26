@@ -3,6 +3,8 @@ package casPracticMiniTerminalMiniFileManager;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -28,7 +30,7 @@ public class MiniFileManager {
 	public boolean cd(String dir) throws IOException {
 
 		boolean cambiado = false;
-
+		try {
 		if (dir != "..") {
 			file = new File(dir);
 		} else {
@@ -37,8 +39,13 @@ public class MiniFileManager {
 
 		if (file.exists()) {
 			cambiado = true;
+		} else {
+			throw new FileNotFoundException ("El archivo no existe.");
 		}
-
+		} catch (FileNotFoundException e) {
+			System.out.println(e);
+		}
+		
 		return cambiado;
 	}
 	
@@ -121,22 +128,17 @@ public class MiniFileManager {
 	public void mkdir(String dir) throws IOException {
 
 		File fichero = new File("");
-
-		try {
-			fichero = new File(file + "/" + dir);
-			if (fichero.exists())
-				System.out.println("El archivo que quieres crear ya existe.");
-			fichero.mkdir();
-		} catch (Exception e) {
-			System.out.println(e);
-		}
+		fichero = new File(file + "/" + dir);
+		fichero.mkdir();
 	}
 
 	public void rm(File f) throws IOException {
 
 		File[] filesList = f.listFiles();
 		ArrayList < File > fil = new ArrayList < File > ();
+		ArrayList < File > dir = new ArrayList < File > ();
 		int i = 0;
+		if (f.exists()) {
 		for (File file: filesList) {
 			try {
 				boolean exists = file.exists();
@@ -145,7 +147,8 @@ public class MiniFileManager {
 
 				if (exists) {
 					if (isDirectory) {
-						System.err.println("Cuidado, has intentado borrar la subcarpeta: " + file.getName());
+						System.err.println("Cuidado, has intentado borrar la subcarpeta: " + file.getName() + "\n");
+						dir.add(file);
 					}
 					if (isFile) {
 						fil.add(file);
@@ -157,10 +160,24 @@ public class MiniFileManager {
 				System.out.println(e);
 			}
 		}
+		} else {
+			throw new FileNotFoundException("No existe el archivo.");
+		}
 		for (i = 0; i < fil.size(); i++) {
+			if(fil.get(i).exists()) {
 			fil.get(i).delete();
 			System.out.println(fil.get(i).getName() + " ha sido eliminado.");
+			}
 		}
+		for (i = 0; i < dir.size(); i++) {
+			String newPath = f.getParent() + "/Backup Sub Folders";
+			File newdir = new File (newPath);
+			if(f.exists())
+			Files.move(f.toPath(), newdir.toPath(), StandardCopyOption.REPLACE_EXISTING);
+		}
+		
+		if(f.exists())
+			f.delete();
 	}
 	
 	public void mv (File f1, File f2) {
@@ -179,15 +196,15 @@ public class MiniFileManager {
 	public String help () {
 		
 		String  toString = 	"---- Menu de ayuda ----";
-				toString += "pwd: Muestra la carpeta actual del proyecto.";
-				toString += "cd (dir): Cambia la carpeta del proyecto a otra, con '..' vas hacia la carpeta superior.";
-				toString += "ls: Lista los directorios y archivos de la carpeta actual.";
-				toString += "ll: Lo mismo que ls ademas de la fecha de modificacion y el peso del archivo.";
-				toString += "mkdir (dir): Crea el directorio introducido en la carpeta actual.";
-				toString += "rm (file): Elimina el directorio introducido, con todos los archivos de dentro, excepto las subcarpetas.";
-				toString += "mv (file1, file2): Mueve o cambia de nombre 'file1' a 'file2'.";
-				toString += "help: Muestra una breve ayuda de todos los comandos (lo que estas leyendo ahora mismo).";
-				toString += "exit: Termina el programa.";
+				toString += "\npwd: Muestra la carpeta actual del proyecto.";
+				toString += "\ncd (dir): Cambia la carpeta del proyecto a otra, con '..' vas hacia la carpeta superior.";
+				toString += "\nls: Lista los directorios y archivos de la carpeta actual.";
+				toString += "\nll: Lo mismo que ls ademas de la fecha de modificacion y el peso del archivo.";
+				toString += "\nmkdir (dir): Crea el directorio introducido en la carpeta actual.";
+				toString += "\nrm (file): Elimina el directorio introducido, con todos los archivos de dentro, excepto las subcarpetas.";
+				toString += "\nmv (file1, file2): Mueve o cambia de nombre 'file1' a 'file2'.";
+				toString += "\nhelp: Muestra una breve ayuda de todos los comandos (lo que estas leyendo ahora mismo).";
+				toString += "\nexit: Termina el programa.";
 
 		return toString;
 	}

@@ -15,9 +15,9 @@
 		<item key="WizardFileSystemResourceExportPage1.STORE_CREATE_STRUCTURE_ID" value="false"/>
 		<item key="WizardFileSystemResourceExportPage1.STORE_RESOLVE_LINKED_RESOURCES_ID" value="false"/>
 		<list key="WizardFileSystemResourceExportPage1.STORE_DESTINATION_NAMES_ID">
+			<item value="/home/julcue/Escritorio"/>
 			<item value="/home/julcue/Escritorio/"/>
 			<item value="/home/julcue/Escritorio/project"/>
-			<item value="/home/julcue/Escritorio"/>
 			<item value="/home/julcue/Documentos"/>
 			<item value="/home/julcue/Documentos/Programación"/>
 		</list>
