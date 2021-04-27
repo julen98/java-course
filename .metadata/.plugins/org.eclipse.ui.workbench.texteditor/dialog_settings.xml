@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="teclado"/>
+		<item key="selection" value="nextLine"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="nextlinea"/>
+			<item value="readlinea"/>
+			<item value="number"/>
+			<item value="name"/>
+			<item value="line"/>
+			<item value="0"/>
+			<item value="99999999"/>
+			<item value="&quot;0&quot;"/>
 			<item value="scanchoice"/>
 			<item value="choiceentry"/>
 			<item value="userAcierta"/>
@@ -15,16 +23,13 @@
 			<item value="num1"/>
 			<item value="#$#$"/>
 			<item value="â¬"/>
-			<item value="tamaño±o"/>
-			<item value="tamaÃ"/>
-			<item value="pulgas"/>
-			<item value="tostring"/>
-			<item value="im"/>
-			<item value="real"/>
-			<item value="getImaginario()"/>
-			<item value="getReal()"/>
 		</list>
 		<list key="replacehistory">
+			<item value="nextLine"/>
+			<item value="readLine"/>
+			<item value="notas"/>
+			<item value="nombre"/>
+			<item value="linea"/>
 			<item value="teclado"/>
 			<item value="opcion"/>
 			<item value="n2"/>
@@ -35,11 +40,6 @@
 			<item value="peloLargo"/>
 			<item value="getIm()"/>
 			<item value="getReal()"/>
-			<item value="im"/>
-			<item value="real"/>
-			<item value="oper"/>
-			<item value="tamano"/>
-			<item value="mostrarPiramide"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

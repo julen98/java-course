@@ -203,6 +203,14 @@ public class MiniFileManager {
 				toString += "\nmkdir (dir): Crea el directorio introducido en la carpeta actual.";
 				toString += "\nrm (file): Elimina el directorio introducido, con todos los archivos de dentro, excepto las subcarpetas.";
 				toString += "\nmv (file1, file2): Mueve o cambia de nombre 'file1' a 'file2'.";
+				toString += "\nfibonacci: Muestra la secuencia de fibonacci mostrando solo los numeros impares.";
+				toString += "\nmaxmin: Muestra el maximo y el minimo del archivo pruebas.txt.";
+				toString += "\nIn progress...";
+				toString += "\nIn progress...";
+				toString += "\nIn progress...";
+				toString += "\nIn progress...";
+				toString += "\nIn progress...";
+				toString += "\nIn progress...";
 				toString += "\nhelp: Muestra una breve ayuda de todos los comandos (lo que estas leyendo ahora mismo).";
 				toString += "\nexit: Termina el programa.";
 

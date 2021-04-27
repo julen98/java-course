@@ -1,5 +1,7 @@
 package casPracticMiniTerminalMiniFileManager;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,9 +12,9 @@ public class Fibonacci {
 		int n1 = 0;
 		int n2 = 1;
 		int suma = 1;
-		
-		FileWriter fw = new FileWriter("src/fibonacci/prueba.txt");
+		FileWriter fw = new FileWriter("prueba.txt");
         PrintWriter pw = null;
+        
         try {
             pw = new PrintWriter(fw);
             pw.print(n1 + " ");
@@ -42,4 +44,13 @@ public class Fibonacci {
            }
         }
 	}
+	
+	public static void printFibonacci() throws IOException {
+		FileReader fr = new FileReader("prueba.txt");
+        BufferedReader entrada = new BufferedReader (fr);
+        
+        System.out.println(entrada.readLine());
+        entrada.close();
+	}
+	
 }
