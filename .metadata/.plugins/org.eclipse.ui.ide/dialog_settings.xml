@@ -6,6 +6,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="/home/julen/Documentos/Java"/>
 			<item value="/home/julcue/Documentos/Conecta4"/>
 			<item value="/home/julcue/Documentos/bkp/TrabajoHundirLaFlota"/>
 			<item value="/home/julcue/Documentos/Java/TrabajoHundirLaFlota"/>
@@ -21,5 +22,13 @@
 		</list>
 	</section>
 	<section name="BasicNewProjectResourceWizard">
+	</section>
+	<section name="ChooseWorkspaceDialogSettings">
+		<item key="DIALOG_X_ORIGIN" value="146"/>
+		<item key="DIALOG_Y_ORIGIN" value="255"/>
+	</section>
+	<section name="WORKBENCH_SETTINGS">
+		<list key="ENABLED_TRANSFERS">
+		</list>
 	</section>
 </section>
