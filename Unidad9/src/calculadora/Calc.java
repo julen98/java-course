@@ -17,10 +17,8 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import javax.swing.border.Border;
 
-import numeroComplejo.Complejo;
 
-
-public class Calc extends JFrame implements ActionListener{
+public class Calc extends JFrame {
 	
 	private Container contentpane = getContentPane();
 	private JPanel panel = new JPanel();
@@ -32,13 +30,9 @@ public class Calc extends JFrame implements ActionListener{
 	private JButton buttonPor = new JButton("*");
 	private JButton buttonEntre = new JButton("/");
 	private ButtonGroup bgroup = new ButtonGroup();
-	private double n1c1;
-	private double n2c1;
-	private double n1c2;
-	private double n2c2;
-	private Complejo c1 = new Complejo(n1c1, n2c1);
-	private Complejo c2 = new Complejo(n1c2, n2c2);
-	private Complejo c3;
+	double left;
+	double right;
+	double resultado;
 	
 	public Calc () {
 		
@@ -109,40 +103,71 @@ public class Calc extends JFrame implements ActionListener{
 		contentpane.add(panel);
 		contentpane.setVisible(true);
 		
-		// Definimos los Action Listener de cada boton
+		// Definimos el ActionListener de cada uno de los botones de operaciones
 		
-		buttonMas.addActionListener(this);
-		buttonMenos.addActionListener(this);
-		buttonPor.addActionListener(this);
-		buttonEntre.addActionListener(this);
-
-		} catch (Exception e) {
+		buttonMas.addActionListener(new ActionListener(){
+            public void actionPerformed (ActionEvent e){
+            	
+            	// Metemos el contenido de los textField en las variables
+            	
+            	left = Double.parseDouble(textfieldLeft.getText());
+        		right = Double.parseDouble(textfieldRight.getText());
+        		
+            	// Sumamos las variables y mostramos el resultado en la label
+        		
+        		resultado = left + right;
+            	label.setText("Resultado: " + resultado);
+            }
+        });
+		
+		buttonMenos.addActionListener(new ActionListener(){
+            public void actionPerformed (ActionEvent e){
+            	
+            	// Metemos el contenido de los textField en las variables
+            	
+            	left = Double.parseDouble(textfieldLeft.getText());
+        		right = Double.parseDouble(textfieldRight.getText());
+        		
+            	// Sumamos las variables y mostramos el resultado en la label
+        		
+        		resultado = left - right;
+            	label.setText("Resultado: " + resultado);
+            }
+        });
+		
+		buttonPor.addActionListener(new ActionListener(){
+            public void actionPerformed (ActionEvent e){
+            	
+            	// Metemos el contenido de los textField en las variables
+            	
+            	left = Double.parseDouble(textfieldLeft.getText());
+        		right = Double.parseDouble(textfieldRight.getText());
+        		
+            	// Sumamos las variables y mostramos el resultado en la label
+        		
+        		resultado = left * right;
+            	label.setText("Resultado: " + resultado);
+            }
+        });
+		
+		buttonEntre.addActionListener(new ActionListener(){
+            public void actionPerformed (ActionEvent e){
+            	
+            	// Metemos el contenido de los textField en las variables
+            	
+            	left = Double.parseDouble(textfieldLeft.getText());
+        		right = Double.parseDouble(textfieldRight.getText());
+        		
+            	// Sumamos las variables y mostramos el resultado en la label
+        		
+        		resultado = left / right;
+            	label.setText("Resultado: " + resultado);
+            }
+        });
+		} catch (NumberFormatException e) {
 			System.out.println(e);
 		}
 	} // constructor
-	
-	public void actionPerformed (ActionEvent e) {
-		
-		// Metemos el contenido de los textField en las variables
-    	
-		try {
-        	n1c1 = Double.parseDouble(textfieldLeft.getText());
-    		n1c2 = Double.parseDouble(textfieldRight.getText());
-        	
-		// Dependiendo del boton que se ha pulsado se ejecuta una operacion diferente
-		
-				if (e.getSource() == buttonMas) {
-				}
-				if (e.getSource() == buttonMenos) {
-				}
-				if (e.getSource() == buttonPor) {
-				}
-				if (e.getSource() == buttonEntre) {
-				}
-		} catch (Exception ex) {
-    		ex.printStackTrace();
-    	}
-	} // actionPerformed
 	
 	public static void main(String[] args) {
 		try {
