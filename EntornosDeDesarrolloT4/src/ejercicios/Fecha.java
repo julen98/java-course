@@ -1,4 +1,4 @@
-package ejs;
+package ejercicios;
 
 public class Fecha {
     private int dia;
@@ -6,12 +6,12 @@ public class Fecha {
     private int anio;
     
     public Fecha(int dia, int mes, int anio) {
-    	this.dia = dia; 
+    	this.setDia(dia); 
     	this.mes = mes; 
     	this.anio = anio;
     }
     
-    public int diasMes() {
+    private int diasMes() {
     	int diasMes = 0;
     	switch(mes) {
         case 1: 
@@ -30,7 +30,7 @@ public class Fecha {
     	return diasMes;
     }
     
-    // verificación de año bisiesto
+    // verificaciï¿½n de aï¿½o bisiesto
     public int bisiesto () {
     	int diasMes = 0;
     	if((anio% 400 == 0) || ((anio% 4 == 0) && (anio % 100 != 0)))
@@ -40,14 +40,22 @@ public class Fecha {
     	return diasMes;
     }
     
-    public boolean valida () {
-        if(dia < 1 || dia > 31) return false;
+    public boolean valida (int i) {
+        if(getDia() < 1 || getDia() > i) return false;
         if(mes < 1 || mes > 12) return false;
         if(anio < 0) return false;
-        // determinamos la cantidad de días del mes:
-        if(dia > diasMes())
+        // determinamos la cantidad de dï¿½as del mes:
+        if(getDia() > diasMes())
         	return false;
         else
         	return true;
     }
+
+	private int getDia() {
+		return dia;
+	}
+
+	private void setDia(int dia) {
+		this.dia = dia;
+	}
 }

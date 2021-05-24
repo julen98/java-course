@@ -48,7 +48,7 @@ public class Calc2 extends JFrame implements ActionListener {
 		setSize(400, 220);
 		setLocationRelativeTo(null);
 		setIconImage (new ImageIcon("km mod.png").getImage());
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setVisible(true);
 		setContentPane(contentpane);
 		setResizable(false);

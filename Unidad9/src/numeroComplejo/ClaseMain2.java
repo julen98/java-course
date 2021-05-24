@@ -7,20 +7,20 @@ public class ClaseMain2 {
 		
 		for(int i = 0; i < vector.length; i++) {
 			vector[i] = new Complejo(random(),random());
-			System.out.println("Complejo "+(i+1)+": ["+vector[i].getReal()+", "+vector[i].getIm()+"]");
+			System.out.println("Complejo "+(i+1)+": ["+vector[i].getReal()+", "+vector[i].getImag()+"]");
 		}
 		
 		for(int i = 0; i < vector.length; i++) {
 			resultado.setReal(vector[i].getReal() + resultado.getReal());
-			resultado.setIm(vector[i].getIm() + resultado.getIm());
+			resultado.setImag(vector[i].getImag() + resultado.getImag());
 		}
-		System.out.println("Suma: "+resultado.getReal() +" + "+ resultado.getIm()+"i");
+		System.out.println("Suma: "+resultado.getReal() +" + "+ resultado.getImag()+"i");
 		
 		for(int i = 0; i < vector.length; i++) {
-			resultado.setReal(vector[i].getReal() * resultado.getReal() - vector[i].getIm() * resultado.getIm());
-			resultado.setIm(vector[i].getReal() * resultado.getIm() + vector[i].getReal() * resultado.getReal());
+			resultado.setReal(vector[i].getReal() * resultado.getReal() - vector[i].getImag() * resultado.getImag());
+			resultado.setImag(vector[i].getReal() * resultado.getImag() + vector[i].getReal() * resultado.getReal());
 		}
-		System.out.println("Multiplicacion: "+resultado.getReal() +" + "+ resultado.getIm()+"i");
+		System.out.println("Multiplicacion: "+resultado.getReal() +" + "+ resultado.getImag()+"i");
 	}
 	
 	public static double random() {

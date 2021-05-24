@@ -45,7 +45,7 @@ public class Calc extends JFrame {
 		setSize(320, 220);
 		setLocationRelativeTo(null);
 		setIconImage (new ImageIcon("km mod.png").getImage());
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setVisible(true);
 		setContentPane(contentpane);
 		

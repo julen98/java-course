@@ -56,7 +56,6 @@ public class Calc3 extends JFrame implements ActionListener{
 		/* Hacemos la ventana visible, definimos el tamano, la posicion, el icono y la 
 		 * operacion por defecto de la ventana al cerrarla.
 		 */
-		Calc.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Mini Calculadora III");
 		setSize(320, 280);
 		setLocationRelativeTo(null);
@@ -195,6 +194,7 @@ public class Calc3 extends JFrame implements ActionListener{
 				label.setForeground(new Color(60, 60, 60));
 				panel.setBackground(new Color(242, 242, 242));
 				border = BorderFactory.createLineBorder(new Color(60, 60, 60), 2);
+				label.setBorder(border);
 			}
 			
 			if (e.getSource() == noche) {
@@ -204,7 +204,8 @@ public class Calc3 extends JFrame implements ActionListener{
 				textfieldRight.setForeground(new Color(242, 242, 242));
 				label.setForeground(new Color(242, 242, 242));
 				panel.setBackground(new Color(60, 60, 60));
-				border = BorderFactory.createLineBorder(new Color(242, 242, 242), 2);				
+				border = BorderFactory.createLineBorder(new Color(242, 242, 242), 2);
+				label.setBorder(border);
 			}
 			
 			if (e.getSource() == anadirReal) {
