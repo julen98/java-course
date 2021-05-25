@@ -2,6 +2,11 @@
 <section name="Workbench">
 	<item key="filters_last_used" value="filter_imports;"/>
 	<item key="org.eclipse.jdt.ui.last.selected.execution.enviroment" value="JavaSE-1.7"/>
+	<item key="delegateUpdating" value="false"/>
+	<item key="Replace" value="true"/>
+	<item key="InstanceOf" value="false"/>
+	<item key="Annotations" value="true"/>
+	<item key="Comments" value="true"/>
 	<section name="org.eclipse.jdt.internal.ui.packageview.PackageExplorerPart">
 		<item key="group_libraries" value="true"/>
 		<item key="layout" value="2"/>
@@ -135,5 +140,21 @@
 		<item key="org.eclipse.jdt.internal.ui.text.JavaOutlineInformationControlDIALOG_HEIGHT" value="350"/>
 		<item key="org.eclipse.jdt.internal.ui.text.JavaOutlineInformationControlDIALOG_USE_PERSISTED_SIZE" value="true"/>
 		<item key="org.eclipse.jdt.internal.ui.text.JavaOutlineInformationControlDIALOG_USE_PERSISTED_LOCATION" value="false"/>
+	</section>
+	<section name="org.eclipse.ltk.ui.refactoring.settings">
+		<item key="renameSubpackages" value="false"/>
+		<item key="updateTextualMatches" value="false"/>
+		<item key="updateQualifiedNames" value="false"/>
+		<item key="patterns" value="*"/>
+	</section>
+	<section name="ExtractMethodWizard">
+		<item key="ThrowRuntimeExceptions" value="false"/>
+		<item key="GenerateJavadoc" value="false"/>
+		<item key="AccessModifier" value="2"/>
+	</section>
+	<section name="ConvertAnonymousToNestedWizard">
+		<item key="DeclareAsStatic" value="false"/>
+		<item key="DeclareAsFinal" value="true"/>
+		<item key="VisibilityControl" value="2"/>
 	</section>
 </section>

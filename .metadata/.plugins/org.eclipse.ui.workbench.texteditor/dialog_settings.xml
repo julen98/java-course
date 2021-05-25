@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="textfieldRight"/>
+		<item key="selection" value="blanco"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="true"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="rojo"/>
+			<item value="amarillo"/>
+			<item value="setBackground"/>
+			<item value="setBack"/>
+			<item value="radioPanel"/>
+			<item value="JButton"/>
+			<item value="setIm"/>
+			<item value="getIm"/>
 			<item value="textfieldDown"/>
 			<item value="textfieldUp"/>
 			<item value="textField"/>
@@ -15,16 +23,14 @@
 			<item value="contentPanel"/>
 			<item value="ruta"/>
 			<item value="nextlinea"/>
-			<item value="readlinea"/>
-			<item value="number"/>
-			<item value="name"/>
-			<item value="line"/>
-			<item value="0"/>
-			<item value="99999999"/>
-			<item value="&quot;0&quot;"/>
-			<item value="scanchoice"/>
 		</list>
 		<list key="replacehistory">
+			<item value="blanco"/>
+			<item value="rojo"/>
+			<item value="pnlHamburguesa"/>
+			<item value="JRadioButton"/>
+			<item value="setImag"/>
+			<item value="getImag"/>
 			<item value="textfieldRight"/>
 			<item value="textfieldLeft"/>
 			<item value="panel"/>
@@ -34,12 +40,6 @@
 			<item value="nombre"/>
 			<item value="linea"/>
 			<item value="teclado"/>
-			<item value="opcion"/>
-			<item value="n2"/>
-			<item value="n1"/>
-			<item value="----"/>
-			<item value="€"/>
-			<item value="tamaño"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

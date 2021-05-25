@@ -13,9 +13,28 @@
 		<item key="moveWizard.updateQualifiedNames" value="false"/>
 		<item key="patterns" value="*"/>
 		<item key="deleteSubPackages" value="false"/>
+		<item key="qualifyReferences" value="false"/>
+		<item key="CREATE_GETTER_SETTER" value="false"/>
+		<item key="CREATE_TOPLEVEL" value="true"/>
+		<item key="CreateGetters" value="false"/>
+		<item key="CreateSetters" value="false"/>
+		<item key="CreateTopLevel" value="true"/>
 	</section>
 	<section name="InferTypeArguments">
 		<item key="assumeCloneReturnsSameType" value="true"/>
 		<item key="leaveUnconstrainedRaw" value="true"/>
+	</section>
+	<section name="ExtractTempWizard">
+		<item key="declareFinal" value="false"/>
+		<item key="declarevariableTypeVar" value="false"/>
+		<item key="replaceOccurrences" value="true"/>
+	</section>
+	<section name="RefactoringWizard.Extract Superclass">
+		<item key="width" value="600"/>
+		<item key="height" value="606"/>
+	</section>
+	<section name="RefactoringWizard.Pull Up">
+		<item key="width" value="600"/>
+		<item key="height" value="671"/>
 	</section>
 </section>

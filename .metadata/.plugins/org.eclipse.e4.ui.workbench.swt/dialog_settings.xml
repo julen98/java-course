@@ -2,8 +2,8 @@
 <section name="Workbench">
 	<section name="ShowViewDialog">
 		<item key="ShowViewDialog.STORE_SELECTED_VIEW_ID" value="org.eclipse.debug.ui.DebugView"/>
-		<item key="DIALOG_X_ORIGIN" value="789"/>
-		<item key="DIALOG_Y_ORIGIN" value="223"/>
+		<item key="DIALOG_X_ORIGIN" value="0"/>
+		<item key="DIALOG_Y_ORIGIN" value="0"/>
 		<item key="DIALOG_WIDTH" value="342"/>
 		<item key="DIALOG_HEIGHT" value="429"/>
 		<item key="DIALOG_FONT_NAME" value="1|Noto Sans|10.0|0|GTK|1|"/>
