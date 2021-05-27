@@ -25,4 +25,7 @@
 <fullyQualifiedTypeName name="javax.swing.SwingConstants"/>
 <fullyQualifiedTypeName name="java.awt.event.MouseEvent"/>
 <fullyQualifiedTypeName name="java.awt.Color"/>
+<fullyQualifiedTypeName name="java.awt.Font"/>
+<fullyQualifiedTypeName name="burgerQueen.BurgerQueen"/>
+<fullyQualifiedTypeName name="burgerQueen.MasBebidas"/>
 </qualifiedTypeNameHistroy>

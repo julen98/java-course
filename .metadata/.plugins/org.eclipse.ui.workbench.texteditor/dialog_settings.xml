@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="blanco"/>
+		<item key="selection" value="frmMasBebidas"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="true"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="frmMasBebidas"/>
+			<item value="frmMas"/>
+			<item value="bgp.getBgpBebida()"/>
+			<item value="bgp"/>
+			<item value="bgp.getBgpBebida().add"/>
+			<item value=".setOpaque(false);"/>
+			<item value="l"/>
+			<item value="arial"/>
 			<item value="rojo"/>
 			<item value="amarillo"/>
 			<item value="setBackground"/>
@@ -15,16 +23,13 @@
 			<item value="radioPanel"/>
 			<item value="JButton"/>
 			<item value="setIm"/>
-			<item value="getIm"/>
-			<item value="textfieldDown"/>
-			<item value="textfieldUp"/>
-			<item value="textField"/>
-			<item value="panel1"/>
-			<item value="contentPanel"/>
-			<item value="ruta"/>
-			<item value="nextlinea"/>
 		</list>
 		<list key="replacehistory">
+			<item value="bgpBebida"/>
+			<item value="bgp"/>
+			<item value="bgpBebidas.add"/>
+			<item value=".setForeground(blanco);"/>
+			<item value="font"/>
 			<item value="blanco"/>
 			<item value="rojo"/>
 			<item value="pnlHamburguesa"/>
@@ -35,11 +40,6 @@
 			<item value="textfieldLeft"/>
 			<item value="panel"/>
 			<item value="nextLine"/>
-			<item value="readLine"/>
-			<item value="notas"/>
-			<item value="nombre"/>
-			<item value="linea"/>
-			<item value="teclado"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

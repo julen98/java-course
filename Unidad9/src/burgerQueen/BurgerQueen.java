@@ -8,8 +8,9 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Enumeration;
 
-import javax.swing.BorderFactory;
+import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -24,14 +25,14 @@ import javax.swing.JRadioButton;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
-import javax.swing.border.Border;
+import javax.swing.border.TitledBorder;
 
 public class BurgerQueen extends JFrame implements ActionListener {
 	
 	// Colores y fuentes personalizadas
 	private Color azul = new Color(20, 144, 236);
 	private Color blanco = new Color(240, 240, 240);
-	private Font arial = new Font("Arial", Font.PLAIN, 12);
+	private Font font = new Font("Roboto", Font.BOLD, 24);
 	
 	// Containers
 	private Container contentpane = getContentPane();
@@ -46,23 +47,24 @@ public class BurgerQueen extends JFrame implements ActionListener {
 	private JPanel pnlSalsas = new JPanel();
 	
 	// Labels
-	private JLabel lblTitulo = new JLabel("Menu Basico (8 €):");
+	private JLabel lblTitulo = new JLabel("Menu basico (8 €):");
 	private JLabel lblKetchup = new JLabel("Ketchup");
 	private JLabel lblMostaza = new JLabel("Mostaza");
 	private JLabel lblBBQ = new JLabel("Barbacoa");
 	private JLabel lblThai = new JLabel("Thai");
+	private JLabel lblQueso = new JLabel("Queso");
+	private JLabel lblMayonesa = new JLabel ("Mayonesa");
 	private JLabel lblPrecio = new JLabel ("Precio:");
 	private JLabel lblIVA = new JLabel ("IVA (21%):");
 	private JLabel lblPVP = new JLabel ("P.V.P:");
 	
 	// Borders
-	private Border bdrAmarillo = BorderFactory.createLineBorder(blanco, 2);
-	private Border bdrHamburguesa = BorderFactory.createTitledBorder(bdrAmarillo, "Hamburguesas");
-	private Border bdrPan = BorderFactory.createTitledBorder(bdrAmarillo, "Pan");
-	private Border bdrPatatas = BorderFactory.createTitledBorder(bdrAmarillo, "Patatas");
-	private Border bdrBebida = BorderFactory.createTitledBorder(bdrAmarillo, "Bebida");
-	private Border bdrExtra = BorderFactory.createTitledBorder(bdrAmarillo, "Opciones Extra/adicionales");
-	private Border bdrSalsas = BorderFactory.createTitledBorder(bdrAmarillo, "Salsas (+0,50€ cada una)");
+	private TitledBorder bdrHamburguesa = new TitledBorder("Hamburguesa");
+	private TitledBorder bdrPan = new TitledBorder("Pan");
+	private TitledBorder bdrPatatas = new TitledBorder("Patatas");
+	private TitledBorder bdrBebida = new TitledBorder("Bebida");
+	private TitledBorder bdrExtra = new TitledBorder("Opciones extra/adicionales");
+	private TitledBorder bdrSalsas = new TitledBorder("Salsas (+0,50€ cada una)");
 	
 	// TextFields
 	private JTextField txtPrecio = new JTextField();
@@ -88,11 +90,12 @@ public class BurgerQueen extends JFrame implements ActionListener {
 	private JRadioButton btnLimon = new JRadioButton("Limon");
 	private JRadioButton btnAgua = new JRadioButton("Agua");
 	private JRadioButton btnCerveza = new JRadioButton("Cerveza");
-	private ButtonGroup bgpBebida = new ButtonGroup();
+	static ButtonGroup bgpBebida = new ButtonGroup();
 	private JRadioButton btnLlevar = new JRadioButton("Reparto a domicilio");
-	private JRadioButton btnRecoger = new JRadioButton("Recodiga en local (-20% dto.)");
+	private JRadioButton btnRecoger = new JRadioButton("Recogida en local (-21% dto.)");
 	private ButtonGroup bgpRecogida = new ButtonGroup();
 	private JButton btnCalcular = new JButton("CALCULAR");
+	private JButton btnMasBebidas = new JButton("Mas...");
 	
 	// Menu
 	private JMenu menu;
@@ -109,9 +112,23 @@ public class BurgerQueen extends JFrame implements ActionListener {
 	private JSpinner spnMostaza = new JSpinner();
 	private JSpinner spnBBQ = new JSpinner();
 	private JSpinner spnThai = new JSpinner();
+	private JSpinner spnQueso = new JSpinner();
+	private JSpinner spnMayonesa = new JSpinner();
+	
+	// Mas bebidas
+	MasBebidas masB = new MasBebidas();
+	
+	// AbstractButtons y Enumerations
+	Enumeration<AbstractButton> hamburguesas = bgpHamburguesa.getElements();
+	Enumeration<AbstractButton> pan = bgpPan.getElements();
+	Enumeration<AbstractButton> patatas = bgpPatatas.getElements();
+	Enumeration<AbstractButton> bebidas = bgpBebida.getElements();
+	AbstractButton absHamburguesa;
+	AbstractButton absPan;
+	AbstractButton absPatatas;
+	AbstractButton absBebidas;
 	
 	// Calculos
-	
 	double precio = 0;
 	double IVA = 0;
 	double PVP = 0;
@@ -119,6 +136,8 @@ public class BurgerQueen extends JFrame implements ActionListener {
 	double mostaza = 0;
 	double bbq = 0;
 	double thai = 0;
+	double queso = 0;
+	double mayonesa = 0;
 	
 	public BurgerQueen() {
 		
@@ -127,11 +146,20 @@ public class BurgerQueen extends JFrame implements ActionListener {
 		 */
 		setTitle("Burger Queen APP");
 		setVisible(true);
-		setSize(600, 700);
+		setSize(600, 720);
 		setLocationRelativeTo(null);
 		setIconImage (new ImageIcon("bqueen.png").getImage());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setContentPane(contentpane);
+		setResizable(false);
+		
+		// Definir borders
+		bdrHamburguesa.setTitleColor(blanco);
+		bdrBebida.setTitleColor(blanco);
+		bdrExtra.setTitleColor(blanco);
+		bdrPan.setTitleColor(blanco);
+		bdrPatatas.setTitleColor(blanco);
+		bdrSalsas.setTitleColor(blanco);
 		
 		// Defino los botones y los anado a sus grupos correspondientes
 		bgpHamburguesa.add(btnPollo);
@@ -151,18 +179,17 @@ public class BurgerQueen extends JFrame implements ActionListener {
 		bgpBebida.add(btnCerveza);
 		
 		// Defino la parte inferior del programa
-		
-		btnLlevar.setBounds(100, 450, 150, 30);
-		btnRecoger.setBounds(300, 450, 250, 30);
+		btnLlevar.setBounds(100, 500, 150, 30);
+		btnRecoger.setBounds(300, 500, 250, 30);
 		bgpRecogida.add(btnLlevar);
 		bgpRecogida.add(btnRecoger);
-		btnCalcular.setBounds(250, 500, 100, 30);
-		lblPrecio.setBounds(120, 550, 100, 30);
-		lblIVA.setBounds(240, 550, 100, 30);
-		lblPVP.setBounds(360, 550, 100, 30);
-		txtPrecio.setBounds(120, 580, 100, 30);
-		txtIVA.setBounds(240, 580, 100, 30);
-		txtPVP.setBounds(360, 580, 100, 30);
+		btnCalcular.setBounds(250, 550, 100, 30);
+		lblPrecio.setBounds(120, 590, 100, 30);
+		lblIVA.setBounds(240, 590, 100, 30);
+		lblPVP.setBounds(360, 590, 100, 30);
+		txtPrecio.setBounds(120, 620, 100, 30);
+		txtIVA.setBounds(240, 620, 100, 30);
+		txtPVP.setBounds(360, 620, 100, 30);
 		
 		// Layout para los paneles
 		GridBagConstraints gbc = new GridBagConstraints();
@@ -198,21 +225,21 @@ public class BurgerQueen extends JFrame implements ActionListener {
 		pnlHamburguesa.add(btnTernera, gbc);
 		pnlHamburguesa.add(btnVegana, gbc);
 		pnlHamburguesa.setBorder(bdrHamburguesa);
-		pnlHamburguesa.setBounds(50, 50, 150, 130);
+		pnlHamburguesa.setBounds(50, 65, 150, 130);
 		
 		pnlPan.setLayout(new GridBagLayout());
 		pnlPan.add(btnNormal, gbc);
 		pnlPan.add(btnIntegral, gbc);
 		pnlPan.add(btnCenteno, gbc);
 		pnlPan.setBorder(bdrPan);
-		pnlPan.setBounds(220, 50, 150, 130);
+		pnlPan.setBounds(220, 65, 150, 130);
 		
 		pnlPatatas.setLayout(new GridBagLayout());
 		pnlPatatas.add(btnFritas, gbc);
 		pnlPatatas.add(btnGajo, gbc);
 		pnlPatatas.add(btnCaseras, gbc);
 		pnlPatatas.setBorder(bdrPatatas);
-		pnlPatatas.setBounds(390, 50, 150, 130);
+		pnlPatatas.setBounds(390, 65, 150, 130);
 		
 		pnlBebida.setLayout(new FlowLayout());
 		pnlBebida.add(btnCola);
@@ -220,15 +247,16 @@ public class BurgerQueen extends JFrame implements ActionListener {
 		pnlBebida.add(btnLimon);
 		pnlBebida.add(btnAgua);
 		pnlBebida.add(btnCerveza);
+		pnlBebida.add(btnMasBebidas);
 		pnlBebida.setBorder(bdrBebida);
-		pnlBebida.setBounds(50, 200, 490, 70);
+		pnlBebida.setBounds(50, 208, 490, 70);
 		
 		pnlExtra.setLayout(new GridBagLayout());
 		pnlExtra.add(chkDoble, gbc);
 		pnlExtra.add(chkQueso, gbc);
 		pnlExtra.add(chkPatatas, gbc);
 		pnlExtra.setBorder(bdrExtra);
-		pnlExtra.setBounds(50, 290, 200, 130);
+		pnlExtra.setBounds(50, 290, 200, 170);
 		
 		pnlSalsas.setLayout(null);
 		pnlSalsas.add(spnKetchup);
@@ -239,28 +267,39 @@ public class BurgerQueen extends JFrame implements ActionListener {
 		pnlSalsas.add(lblBBQ);
 		pnlSalsas.add(spnThai);
 		pnlSalsas.add(lblThai);
+		pnlSalsas.add(spnQueso);
+		pnlSalsas.add(lblQueso);
+		pnlSalsas.add(spnMayonesa);
+		pnlSalsas.add(lblMayonesa);
 		pnlSalsas.setBorder(bdrSalsas);
-		pnlSalsas.setBounds(270, 290, 270, 130);
+		pnlSalsas.setBounds(270, 290, 270, 170);
 		
 		// Definir labels y spinners
-		
 		lblTitulo.setBounds(50, 0, 350, 70);
+		lblTitulo.setFont(font);
 		lblKetchup.setBounds(20, 20, 100, 30);
-		spnKetchup.setBounds(80, 25, 40, 25);
+		spnKetchup.setBounds(90, 25, 40, 25);
 		lblMostaza.setBounds(150, 20, 100, 30);
-		spnMostaza.setBounds(210, 25, 40, 25);
+		spnMostaza.setBounds(220, 25, 40, 25);
 		lblBBQ.setBounds(20, 70, 100, 30);
-		spnBBQ.setBounds(80, 75, 40, 25);
+		spnBBQ.setBounds(90, 75, 40, 25);
 		lblThai.setBounds(150, 70, 100, 30);
-		spnThai.setBounds(210, 75, 40, 25);
+		spnThai.setBounds(220, 75, 40, 25);
+		lblQueso.setBounds(20, 120, 100, 30);
+		spnQueso.setBounds(90, 125, 40, 25);
+		lblMayonesa.setBounds(150, 120, 100, 30);
+		spnMayonesa.setBounds(220, 125, 40, 25);
 		
 		// Anadir ActionListeners a todos los componentes
-		
 		btnCalcular.addActionListener(this);
 		btnCaseras.addActionListener(this);
 		btnRecoger.addActionListener(this);
 		btnTernera.addActionListener(this);
 		btnVegana.addActionListener(this);
+		btnMasBebidas.addActionListener(this);
+		for (hamburguesas; hamburguesas.hasMoreElements();) {
+			
+		}
 		
 		// Anado el panel principal al container
 		contentpane.add(mainPanel);
@@ -273,14 +312,9 @@ public class BurgerQueen extends JFrame implements ActionListener {
 		pnlBebida.setBackground(azul);
 		pnlExtra.setBackground(azul);
 		pnlSalsas.setBackground(azul);
-		txtPrecio.setBackground(azul);
-		txtIVA.setBackground(azul);
-		txtPVP.setBackground(azul);
-		spnBBQ.setBackground(azul);
-		spnKetchup.getEditor().getComponent(0).setBackground(azul);
-		spnMostaza.getEditor().getComponent(0).setBackground(azul);
-		spnThai.getEditor().getComponent(0).setBackground(azul);
-		spnBBQ.getEditor().getComponent(0).setBackground(azul);
+		txtPrecio.setBackground(blanco);
+		txtIVA.setBackground(blanco);
+		txtPVP.setBackground(blanco);
 		
 		btnAgua.setOpaque(false);
 		btnCalcular.setOpaque(false);
@@ -305,7 +339,6 @@ public class BurgerQueen extends JFrame implements ActionListener {
 		chkQueso.setOpaque(false);
 		
 		// Cambiar color de la fuente
-		
 		btnAgua.setForeground(blanco);
 		btnCalcular.setForeground(new Color (15,15,15));
 		btnCaseras.setForeground(blanco);
@@ -332,10 +365,25 @@ public class BurgerQueen extends JFrame implements ActionListener {
 		lblKetchup.setForeground(blanco);
 		lblMostaza.setForeground(blanco);
 		lblPrecio.setForeground(blanco);
+		lblQueso.setForeground(blanco);
+		lblMayonesa.setForeground(blanco);
 		lblPVP.setForeground(blanco);
 		lblThai.setForeground(blanco);
 		lblTitulo.setForeground(blanco);
 		
+		// Introduciendo los botones en los abstract buttons
+		while (hamburguesas.hasMoreElements()) {
+            absHamburguesa = hamburguesas.nextElement();
+		}
+        while (pan.hasMoreElements()) {
+            absPan = pan.nextElement();
+        }
+        while (patatas.hasMoreElements()) {
+            absPatatas = patatas.nextElement();
+        }
+        while (bebidas.hasMoreElements()) {
+            absBebidas = bebidas.nextElement();
+        }
 		
 	} // constructor
 	
@@ -360,19 +408,30 @@ public class BurgerQueen extends JFrame implements ActionListener {
 		if (chkPatatas.isSelected())
 			precio = precio + 1;
 		
-		if (btnRecoger.isSelected())
-			precio = precio * 0.8;
-		
-		if (e.getSource() == btnCalcular) {
-			ketchup = Double.parseDouble(spnKetchup.getValue().toString());
-			mostaza = Double.parseDouble(spnMostaza.getValue().toString());
-			bbq = Double.parseDouble(spnBBQ.getValue().toString());
-			thai = Double.parseDouble(spnThai.getValue().toString());
-			precio = precio + (ketchup + mostaza + bbq + thai) * 0.50;
-			precio = Math.round(precio * 100.0) / 100.0;
-			txtPrecio.setText("" + precio);
+		if (e.getSource() == btnMasBebidas && !masB.isVisible()) {
+			masB.setVisible(true);
 		}
-	} // actionlistener
+		
+        if (absHamburguesa.isSelected() && absPan.isSelected() && absPatatas.isSelected() && absBebidas.isSelected()) {
+        	if (e.getSource() == btnCalcular) {
+				ketchup = Double.parseDouble(spnKetchup.getValue().toString());
+				mostaza = Double.parseDouble(spnMostaza.getValue().toString());
+				bbq = Double.parseDouble(spnBBQ.getValue().toString());
+				thai = Double.parseDouble(spnThai.getValue().toString());
+				queso = Double.parseDouble(spnQueso.getValue().toString());
+				mayonesa = Double.parseDouble(spnMayonesa.getValue().toString());
+				precio = precio + (ketchup + mostaza + bbq + thai + queso + mayonesa) * 0.50;
+				if (btnRecoger.isSelected())
+					precio = precio * 0.79;
+				precio = Math.round(precio * 100.0) / 100.0;
+				IVA = Math.round(precio * 0.21) * 100.0 / 100.0;
+				PVP = Math.round(precio + IVA) * 100.0 / 100.0;
+				txtPrecio.setText("" + precio);
+				txtIVA.setText("" + IVA);
+				txtPVP.setText("" + PVP);
+				}
+            }
+		} // actionlistener
 	
 	public static void main(String[] args) {
 		try {
