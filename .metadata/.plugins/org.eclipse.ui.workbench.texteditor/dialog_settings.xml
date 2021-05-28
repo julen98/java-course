@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="frmMasBebidas"/>
+		<item key="selection" value="ContentPane"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
-		<item key="wholeword" value="true"/>
+		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="contentpane"/>
+			<item value="pane"/>
+			<item value="content"/>
+			<item value=".setForeground(blanco);"/>
+			<item value="private"/>
 			<item value="frmMasBebidas"/>
 			<item value="frmMas"/>
 			<item value="bgp.getBgpBebida()"/>
@@ -18,13 +23,10 @@
 			<item value="arial"/>
 			<item value="rojo"/>
 			<item value="amarillo"/>
-			<item value="setBackground"/>
-			<item value="setBack"/>
-			<item value="radioPanel"/>
-			<item value="JButton"/>
-			<item value="setIm"/>
 		</list>
 		<list key="replacehistory">
+			<item value=".addActionListener(this);"/>
+			<item value="static"/>
 			<item value="bgpBebida"/>
 			<item value="bgp"/>
 			<item value="bgpBebidas.add"/>
@@ -38,13 +40,11 @@
 			<item value="getImag"/>
 			<item value="textfieldRight"/>
 			<item value="textfieldLeft"/>
-			<item value="panel"/>
-			<item value="nextLine"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="622"/>
-		<item key="DIALOG_Y_ORIGIN" value="160"/>
+		<item key="DIALOG_X_ORIGIN" value="-57"/>
+		<item key="DIALOG_Y_ORIGIN" value="131"/>
 		<item key="DIALOG_WIDTH" value="330"/>
 		<item key="DIALOG_HEIGHT" value="437"/>
 		<item key="DIALOG_FONT_NAME" value="1|Noto Sans|10.0|0|GTK|1|"/>
