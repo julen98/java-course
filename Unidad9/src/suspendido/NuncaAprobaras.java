@@ -4,11 +4,12 @@ import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
-import java.util.Random;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
@@ -44,16 +45,26 @@ public class NuncaAprobaras extends JFrame {
 		label.setText("Vas a aprobar programacion?");
 		label.setFont(font);
 		label.setForeground(new Color(255, 0, 0));
-		label.setBounds(25, SwingUtilities.CENTER, 300, 70);
+		label.setBounds(25, 50, 300, 70);
 		
 		// Defino los botones
 		btnSi.setBounds(100, 150, 55, 30);
 		btnNo.setBounds(155, 150, 55, 30);
 		
-		// Anado los actionlistener
+		// Anado los Mouse Listener
 		btnSi.addMouseListener(new MouseAdapter() {
-	        public void mouseEntered(java.awt.event.MouseEvent evt) {
-	        	btnSi.setLocation(new Random().nextInt(600), new Random().nextInt(400));
+	        public void mouseEntered(MouseEvent e) {
+	        	btnSi.setBounds(210, 150, 55, 30);
+	        }
+	    });
+		btnNo.addMouseListener(new MouseAdapter() {
+	        public void mouseClicked(MouseEvent e) {
+	        	JOptionPane.showMessageDialog(null, "Haber estudiado!");
+	        }
+	    });
+		mainPanel.addMouseListener(new MouseAdapter() {
+	        public void mouseEntered(MouseEvent e) {
+	    		btnSi.setBounds(100, 150, 55, 30);
 	        }
 	    });
 		
