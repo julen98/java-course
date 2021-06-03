@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="familiaFuente"/>
+		<item key="selection" value="toolbar"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="true"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="toolbar"/>
+			<item value="btnSubrayado"/>
+			<item value="this."/>
+			<item value="miSubrayado"/>
+			<item value="miNegrita"/>
+			<item value="miCursiva"/>
+			<item value="textarea"/>
 			<item value="fontFamily"/>
 			<item value="sizeOfFont"/>
 			<item value="sizeValue"/>
@@ -16,15 +23,12 @@
 			<item value="fonts"/>
 			<item value="font"/>
 			<item value="private"/>
-			<item value=" private"/>
-			<item value="private "/>
-			<item value="package picaLetras;"/>
-			<item value="t."/>
-			<item value="contentpane"/>
-			<item value="pane"/>
-			<item value="content"/>
 		</list>
 		<list key="replacehistory">
+			<item value="btnSubrayado"/>
+			<item value="btnNegrita"/>
+			<item value="btnCursiva"/>
+			<item value="textArea"/>
 			<item value="familiaFuente"/>
 			<item value="tamanoDeFuente"/>
 			<item value="valorTamano"/>
@@ -36,10 +40,6 @@
 			<item value="textarea."/>
 			<item value=".addActionListener(this);"/>
 			<item value="static"/>
-			<item value="bgpBebida"/>
-			<item value="bgp"/>
-			<item value="bgpBebidas.add"/>
-			<item value=".setForeground(blanco);"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

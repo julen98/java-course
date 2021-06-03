@@ -32,4 +32,5 @@
 <fullyQualifiedTypeName name="javax.swing.text.AttributeSet"/>
 <fullyQualifiedTypeName name="javax.swing.text.Element"/>
 <fullyQualifiedTypeName name="java.awt.Font"/>
+<fullyQualifiedTypeName name="java.awt.font.TextAttribute"/>
 </qualifiedTypeNameHistroy>
