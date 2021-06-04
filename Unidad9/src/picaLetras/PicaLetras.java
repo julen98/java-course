@@ -1,6 +1,7 @@
 package picaLetras;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -13,41 +14,42 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JColorChooser;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JToolBar;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 
-public class PicaLetras extends JFrame implements ActionListener {
+public class PicaLetras extends JFrame implements ActionListener, ChangeListener {
+	private static final long serialVersionUID = 3159868647123505767L;
+
+	// Selector color
+	private final SelectorColor color = new SelectorColor();
 	
 	// Containers
-	Container contentpane = getContentPane();
+	private final Container contentpane = getContentPane();
 	
 	// Text component
-	JTextArea textArea;
+	private final JTextArea textArea;
 	
 	// Menu
-	JMenuBar menubar = new JMenuBar();
-	JMenu menuArchivo = new JMenu("Archivo");
-    JMenu menuEditar = new JMenu("Editar");
-    JMenu menuFormato = new JMenu("Formato");
-    
-    // Selector de color
-    JColorChooser colores = new JColorChooser();
+	private final JMenuBar menubar = new JMenuBar();
+	private final JMenu menuArchivo = new JMenu("Archivo");
+	private final JMenu menuEditar = new JMenu("Editar");
+	private final JMenu menuAyuda = new JMenu("Ayuda");
     
     // Toolbar
     private final JToolBar mainToolbar = new JToolBar();
@@ -56,29 +58,34 @@ public class PicaLetras extends JFrame implements ActionListener {
     private final ImageIcon iconNegrita = new ImageIcon("icons/bold.png");
     private final ImageIcon iconCursiva = new ImageIcon("icons/italic.png");
     private final ImageIcon iconSubrayado = new ImageIcon("icons/underline.png");
+    private final ImageIcon iconColor = new ImageIcon("icons/color.png");
 
     // Fonts
     private final JComboBox<String> tipoFuente;
     private final JComboBox<Integer> tamanoFuente;
     
 	// Menu Items
-	JMenuItem miNuevo = new JMenuItem("Nuevo");
-	JMenuItem miAbrir = new JMenuItem("Abrir...");
-	JMenuItem miGuardar = new JMenuItem("Guardar");
-	JMenuItem miPrint = new JMenuItem("Imprimir");
-	JMenuItem miCortar = new JMenuItem("Cortar");
-	JMenuItem miCopiar = new JMenuItem("Copiar");
-	JMenuItem miPegar = new JMenuItem("Pegar");
-	JMenuItem miCerrar = new JMenuItem("Cerrar");
-	JButton btnNegrita = new JButton(iconNegrita);
-	JButton btnCursiva = new JButton(iconCursiva);
-	JButton btnSubrayado = new JButton(iconSubrayado);
-    
+    private final JMenuItem miNuevo = new JMenuItem("Nuevo");
+    private final JMenuItem miAbrir = new JMenuItem("Abrir...");
+    private final JMenuItem miGuardar = new JMenuItem("Guardar");
+	private final JMenuItem miCortar = new JMenuItem("Cortar");
+	private final JMenuItem miCopiar = new JMenuItem("Copiar");
+	private final JMenuItem miPegar = new JMenuItem("Pegar");
+	private final JMenuItem miCerrar = new JMenuItem("Cerrar");
+	private final JMenuItem miSobreMi = new JMenuItem("Autor");
+	private final JMenuItem miSobrePrograma = new JMenuItem("Acerca de PicaLetras");
+	
+	// Botones
+	private final JButton btnNegrita = new JButton(iconNegrita);
+	private final JButton btnCursiva = new JButton(iconCursiva);
+	private final JButton btnSubrayado = new JButton(iconSubrayado);
+	private final  JButton btnColores = new JButton(iconColor);
+	
 	// Popup Menu
-	JPopupMenu popMenu = new JPopupMenu();
+	//private final JPopupMenu popMenu = new JPopupMenu();
 	
 	// Elementos a anadir al popup
-	JMenuItem popCopiar = new JMenuItem("Copiar");
+	//private final JMenuItem popCopiar = new JMenuItem("Copiar");
 	
 	PicaLetras() {
 		// Fuente por defecto para TextArea
@@ -94,7 +101,7 @@ public class PicaLetras extends JFrame implements ActionListener {
 		 * operacion por defecto de la ventana al cerrarla.
 		 */
         setTitle("Sin Titulo 1 - PicaLetras");
-        setVisible(true);
+        setVisible(false);
 		setSize(720, 720);
 		setLocationRelativeTo(null);
 		setIconImage(new ImageIcon("writer.png").getImage());
@@ -104,7 +111,6 @@ public class PicaLetras extends JFrame implements ActionListener {
 		setJMenuBar(menubar);
 		add(textArea);
         setMinimumSize(new Dimension(400, 300));
-        add(colores, BorderLayout.PAGE_END);
 
         // Tipo de fuentes
         tipoFuente = new JComboBox<String>();
@@ -165,26 +171,30 @@ public class PicaLetras extends JFrame implements ActionListener {
 		menuArchivo.add(miAbrir);
 		menuArchivo.add(miGuardar);
 		menuArchivo.add(miNuevo);
-		menuArchivo.add(miPrint);
 		menuArchivo.add(miCerrar);
 		
 		menuEditar.add(miCortar);
 		menuEditar.add(miPegar);
 		menuEditar.add(miCopiar);
 		
-		// Anadir Action Listeners y Mouse Listeners
+		menuAyuda.add(miSobreMi);
+		menuAyuda.add(miSobrePrograma);
+		
+		// Anadir Action Listeners
 	    miAbrir.addActionListener(this);
 	    miGuardar.addActionListener(this);
 	    miNuevo.addActionListener(this);
-	    miPrint.addActionListener(this);
 	    miCerrar.addActionListener(this);
 	    miCortar.addActionListener(this);
 	    miPegar.addActionListener(this);
 	    miCopiar.addActionListener(this);
+	    miSobreMi.addActionListener(this);
+	    miSobrePrograma.addActionListener(this);
 	    
 	    // Anadir al menubar
 	    menubar.add(menuArchivo);
 	    menubar.add(menuEditar);
+	    menubar.add(menuAyuda);
 	    
 	    // Anado el toolbar
 	    add(mainToolbar, BorderLayout.NORTH);
@@ -217,8 +227,21 @@ public class PicaLetras extends JFrame implements ActionListener {
 		mainToolbar.addSeparator();
 		tipoFuente.setToolTipText("Tipo de fuente");
 		
+		// Colores
+	    mainToolbar.add(btnColores);
+	    mainToolbar.addSeparator();
+	    btnColores.setToolTipText("Selector Colores");
+	    btnColores.addActionListener(this);
+	    SelectorColor.colores.getSelectionModel().addChangeListener(this);
+	    
 	} // constructor
 	
+	public void stateChanged(ChangeEvent e) {
+	    Color newColor = SelectorColor.colores.getColor();
+	    textArea.setForeground(newColor);
+	}
+	
+	@SuppressWarnings("unchecked")
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String accion = e.getActionCommand();
@@ -246,19 +269,39 @@ public class PicaLetras extends JFrame implements ActionListener {
             }
         }
         else if (e.getSource() == btnSubrayado) {
-        	Map<TextAttribute, Integer> subrayado = new HashMap<TextAttribute, Integer>();
-        	subrayado.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
-        	Map<TextAttribute, Integer> noSubrayado = new HashMap<TextAttribute, Integer>();
-        	noSubrayado.put(TextAttribute.UNDERLINE, -1);
-        	Font underline;
-        	if (textArea.getFont() == subrayado) {
-        		underline = textArea.getFont().deriveFont(noSubrayado);
-            	textArea.setFont(underline);
+			@SuppressWarnings("rawtypes")
+			Map under = getFont().getAttributes();
+        	under.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
+        	
+        	@SuppressWarnings("rawtypes")
+			Map nounder = getFont().getAttributes();
+        	nounder.put(TextAttribute.UNDERLINE, -1);
+        	
+        	Font font = textArea.getFont().deriveFont(under);
+        	Font font_no = textArea.getFont().deriveFont(nounder);
+        	
+        	if (textArea.getFont() == font) {
+            	textArea.setFont(font_no);
         	} else {
-        		underline = textArea.getFont().deriveFont(subrayado);
-        		textArea.setFont(underline);
+        		textArea.setFont(font);
         	}
-        } 
+        }
+        else if (e.getSource() == btnColores) {
+        	if (!color.isVisible()) {
+        	color.setSize(650, 360);
+        	color.setVisible(true);
+    		color.setLocationRelativeTo(null);
+        	}
+        }
+        if (accion.equals("Autor")) {
+        	JOptionPane.showMessageDialog(null, "Nombre: Julen Ramon Martinez Cuervo"
+        			+ "\nGithub: julen98"
+        			+ "\nCorreo electronico: julenramon792@gmail.com");
+        }
+        if (accion.equals("Acerca de PicaLetras")) {
+        	JOptionPane.showMessageDialog(null, "Version: 1.0"
+        			+ "\nCopyright © 2021");
+        }
         if (accion.equals("Guardar")) {
             JFileChooser chooser = new JFileChooser("f:");
             chooser.setSelectedFile(new File("Sin Titulo 1"));
@@ -280,14 +323,6 @@ public class PicaLetras extends JFrame implements ActionListener {
                 }
             }
         } 
-        if (accion.equals("Imprimir")) {
-            try {
-                // Imprime el archivo
-                textArea.print();
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        } 
         if (accion.equals("Abrir...")) {
             JFileChooser chooser = new JFileChooser("f:");
             int r = chooser.showOpenDialog(null);
@@ -300,7 +335,8 @@ public class PicaLetras extends JFrame implements ActionListener {
                 try {
                     String s1 = "", sl = "";
                     FileReader fr = new FileReader(fi);
-                    BufferedReader br = new BufferedReader(fr);
+                    @SuppressWarnings("resource")
+					BufferedReader br = new BufferedReader(fr);
                     sl = br.readLine();
  
                     // Coge la entrada desde el archivo

@@ -26,11 +26,11 @@
 <fullyQualifiedTypeName name="burgerQueen.MasBebidas"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
-<fullyQualifiedTypeName name="picaLetras.PicaLetras"/>
 <fullyQualifiedTypeName name="java.awt.event.MouseListener"/>
 <fullyQualifiedTypeName name="java.awt.event.MouseEvent"/>
 <fullyQualifiedTypeName name="javax.swing.text.AttributeSet"/>
 <fullyQualifiedTypeName name="javax.swing.text.Element"/>
 <fullyQualifiedTypeName name="java.awt.Font"/>
 <fullyQualifiedTypeName name="java.awt.font.TextAttribute"/>
+<fullyQualifiedTypeName name="picaLetras.PicaLetras"/>
 </qualifiedTypeNameHistroy>
